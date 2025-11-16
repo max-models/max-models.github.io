@@ -23,7 +23,7 @@ repository               : "max-models/max-models.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "images/profile.jpeg"
+  avatar           : "profile.jpeg"
   name             : "Max Lindqvist"
   pronouns         : # example: "she/her"  
   bio              : "I model the physics of plasmas"
