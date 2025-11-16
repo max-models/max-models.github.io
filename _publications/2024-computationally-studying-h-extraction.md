@@ -7,7 +7,7 @@ excerpt: ''
 date: 2024-01-01
 venue: 'Journal of Instrumentation'
 paperurl: ''
-citation: 'N. den Harder, **M. Lindqvist**, M. Miettunen, T. Minea, S. Mochalskyy, R. Nocentini, A. Revel, D. Wunderlich, U. Fantz, J. Instrum. 18 C08005 (2023)'
+citation: 'N. den Harder, M. Lindqvist, M. Miettunen, T. Minea, S. Mochalskyy, R. Nocentini, A. Revel, D. Wunderlich, U. Fantz, J. Instrum. 18 C08005 (2023)'
 ---
 
 # Abstract

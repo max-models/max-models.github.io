@@ -7,7 +7,7 @@ excerpt: ''
 date: 2019-01-01
 venue: 'Journal of Applied Physics'
 paperurl: ''
-citation: '**M. Lindqvist**, S. Nishioka, K. Miyamoto, K. Hoshino, J. Lettry, A. Hatayama, Journal of Applied Physics 126, 123303 (2019)'
+citation: 'M. Lindqvist, S. Nishioka, K. Miyamoto, K. Hoshino, J. Lettry, A. Hatayama, Journal of Applied Physics 126, 123303 (2019)'
 ---
 
 # Abstract

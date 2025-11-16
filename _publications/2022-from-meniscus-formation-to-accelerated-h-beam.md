@@ -7,7 +7,7 @@ excerpt: ''
 date: 2022-01-01
 venue: 'Nuclear Fusion'
 paperurl: ''
-citation: '**M. Lindqvist**, N. den Harder, A. Revel, S. Mochalskyy, M. Miettunen, R. Nocentini, T. Minea, U. Fantz, Nucl. Fusion 62 126068 (2022)'
+citation: 'M. Lindqvist, N. den Harder, A. Revel, S. Mochalskyy, M. Miettunen, R. Nocentini, T. Minea, U. Fantz, Nucl. Fusion 62 126068 (2022)'
 ---
 
 # Abstract
