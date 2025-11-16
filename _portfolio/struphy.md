@@ -10,5 +10,8 @@ collection: portfolio
 * Magneto-hydrodynamics (MHD)
 * Vlasov-Poisson and Vlasov-Maxwell kinetic models
 * Drift-kinetic models for strongly magnetized plasma
-* MHD-kinetic hybrid models 
+* MHD-kinetic hybrid models
+
+[Check out the code on Github!](https://github.com/struphy-hub/struphy)
+
 <img src='https://avatars.githubusercontent.com/u/219644266?s=400&u=df1c816f6cdf81f495936c0837a76b44ae1a48a2&v=4'>
