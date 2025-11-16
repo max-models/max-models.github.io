@@ -7,7 +7,7 @@ excerpt: ''
 date: 2024-03-25
 venue: 'Physics of Plasmas'
 paperurl: 'https://pubs.aip.org/aip/pop/article/31/3/033903/3278916/Particle-injection-methods-in-3D-PIC-MCC'
-citation: 'M. Lindqvist, D. Wünderlich, S. Mochalskyy, N. den Harder, A. Revel, T. Minea, U. Fantz, Phys. Plasmas 31, 033903 (2024)'
+citation: '**M. Lindqvist**, D. Wünderlich, S. Mochalskyy, N. den Harder, A. Revel, T. Minea, U. Fantz, Phys. Plasmas 31, 033903 (2024)'
 ---
 
 # Abstract
