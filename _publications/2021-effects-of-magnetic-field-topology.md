@@ -7,7 +7,7 @@ excerpt: ''
 date: 2021-01-01
 venue: 'Plasma Sources Science and Technology'
 paperurl: ''
-citation: 'D. Wunderlich, I. M. Montellano, M. Lindqvist, M. Miettunen, S. Mochalskyy, U. Fantz, Plasma Sources Sci. Technol. 31 125001 (2021)'
+citation: 'D. Wunderlich, I. M. Montellano, <b>M. Lindqvist</b>, M. Miettunen, S. Mochalskyy, U. Fantz, Plasma Sources Sci. Technol. 31 125001 (2021)'
 ---
 
 # Abstract

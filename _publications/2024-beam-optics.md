@@ -7,7 +7,7 @@ excerpt: ''
 date: 2024-01-01
 venue: 'Nuclear Fusion'
 paperurl: ''
-citation: 'N. den Harder, M. Barnes, B. Heinemann, M. Lindqvist, R. Nocentini, G. Orozco, C. Wimmer, D. Wunderlich, U. Fantz, Nucl. Fusion 64 076046 (2024)'
+citation: 'N. den Harder, M. Barnes, B. Heinemann, <b>M. Lindqvist</b>, R. Nocentini, G. Orozco, C. Wimmer, D. Wunderlich, U. Fantz, Nucl. Fusion 64 076046 (2024)'
 ---
 
 # Abstract

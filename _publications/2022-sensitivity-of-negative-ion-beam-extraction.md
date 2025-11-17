@@ -7,7 +7,7 @@ excerpt: ''
 date: 2022-01-01
 venue: 'Plasma Sources Science and Technology'
 paperurl: ''
-citation: 'M. Lindqvist, D. Wunderlich, M. Miettunen, S. Mochalskyy, A. Revel, R. Nocentini, T. Minea, U. Fantz, Plasma Sources Sci. Technol. 31 125001 (2022)'
+citation: '<b>M. Lindqvist</b>, D. Wunderlich, M. Miettunen, S. Mochalskyy, A. Revel, R. Nocentini, T. Minea, U. Fantz, Plasma Sources Sci. Technol. 31 125001 (2022)'
 ---
 
 # Abstract
