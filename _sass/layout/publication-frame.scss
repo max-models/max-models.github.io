@@ -1,10 +1,14 @@
+/* ==========================================================================
+   PUBLICATION / CARD STYLES
+   ========================================================================== */
+
 /* Base card / publication item styles */
 .archive__item,
 .pub-list-item,
 .bibliography li,
 .publication {
-  background-color: #f9f9f9; /* light mode: slightly off-white */
-  border: 1px solid #ddd;
+  background-color: var(--card-bg-color, #f9f9f9); /* fallback for light mode */
+  border: 1px solid var(--global-border-color, #ddd);
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -12,22 +16,22 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Light mode hover effect: slightly darker */
+/* Hover state */
 .archive__item:hover,
 .pub-list-item:hover,
 .bibliography li:hover,
 .publication:hover {
-  background-color: #f0f0f0; /* slightly darker off-white */
+  background-color: var(--card-bg-hover-color, #f0f0f0);
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Light mode active / focus states */
+/* Active / pressed state */
 .archive__item:active,
 .pub-list-item:active,
 .bibliography li:active,
 .publication:active {
-  background-color: #e8e8e8; /* darker for pressed state */
+  background-color: var(--card-bg-active-color, #e8e8e8);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
@@ -38,7 +42,7 @@
 .publication h2 {
   margin: 0 0 0.5rem 0;
   font-size: 1.2rem;
-  color: #222222; /* main text color */
+  color: var(--global-text-color, #222222);
 }
 
 .archive__item p,
@@ -46,7 +50,7 @@
 .bibliography li p,
 .publication p {
   margin: 0;
-  color: #555555; /* secondary text color */
+  color: var(--global-text-color-light, #555555);
   font-size: 0.95rem;
 }
 
@@ -55,7 +59,7 @@
 .pub-list-item a,
 .bibliography li a,
 .publication a {
-  color: #1a0dab; /* default link color */
+  color: var(--global-link-color, #1a0dab);
   text-decoration: underline;
   transition: color 0.2s ease;
 }
@@ -65,17 +69,18 @@
 .pub-list-item a:hover,
 .bibliography li a:hover,
 .publication a:hover {
-  color: #0b0080; /* darker blue on hover */
+  color: var(--global-link-color-hover, #0b0080);
 }
 
-/* Dark mode overrides */
-@media (prefers-color-scheme: dark) {
+/* Optional: if you want dark mode overrides using HTML attribute */
+html[data-theme="dark"] {
   .archive__item,
   .pub-list-item,
   .bibliography li,
   .publication {
-    background-color: #1c1c1c; /* slightly off-black */
-    border: 1px solid #333;
+    /* Uses the CSS variable from _default_dark.scss */
+    background-color: var(--card-bg-color-dark);
+    border: 1px solid var(--global-border-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 
@@ -83,7 +88,7 @@
   .pub-list-item:hover,
   .bibliography li:hover,
   .publication:hover {
-    background-color: #262626; /* slightly lighter than base dark */
+    background-color: var(--card-bg-hover-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   }
 
@@ -91,7 +96,7 @@
   .pub-list-item:active,
   .bibliography li:active,
   .publication:active {
-    background-color: #2e2e2e; /* darker pressed state */
+    background-color: var(--card-bg-active-color);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
   }
 
@@ -99,27 +104,27 @@
   .pub-list-item h2,
   .bibliography li h2,
   .publication h2 {
-    color: #eeeeee;
+    color: var(--global-text-color, #eeeeee);
   }
 
   .archive__item p,
   .pub-list-item p,
   .bibliography li p,
   .publication p {
-    color: #cccccc;
+    color: var(--global-text-color-light, #cccccc);
   }
 
   .archive__item a,
   .pub-list-item a,
   .bibliography li a,
   .publication a {
-    color: #66aaff; /* lighter blue for dark mode */
+    color: var(--global-link-color, #66aaff);
   }
 
   .archive__item a:hover,
   .pub-list-item a:hover,
   .bibliography li a:hover,
   .publication a:hover {
-    color: #3399ff; /* darker on hover in dark mode */
+    color: var(--global-link-color-hover, #3399ff);
   }
 }

@@ -44,4 +44,8 @@ $sidebar-screen-min-width   : 1024px;
     --global-text-color                 : #{$dark-gray};
     --global-text-color-light           : #{$light-gray};
     --global-thead-color                : #{$lighter-gray};
+
+    --card-bg-color          : mix(#fff, #{$gray}, 85%);   /* slightly off-white */
+    --card-bg-hover-color    : mix(#fff, #{$gray}, 80%);   /* hover slightly darker */
+    --card-bg-active-color   : mix(#fff, #{$gray}, 75%);   /* active/pressed */
 }

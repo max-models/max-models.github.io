@@ -51,4 +51,9 @@ html[data-theme="dark"] {
     --global-text-color                 : #{$text};
     --global-text-color-light           : #f3f3f3;
     --global-thead-color                : #{$background-lighter};
+
+    /* NEW: card background for dark mode (slightly lighter than page background) */
+    --card-bg-color                     : mix(#fff, $background, 10%); // slightly lighter
+    --card-bg-hover-color               : mix(#fff, $background, 15%);
+    --card-bg-active-color              : mix(#fff, $background, 20%);
 }
