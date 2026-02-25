@@ -4,9 +4,11 @@ excerpt: "Generate a slurm scripts from the console"
 collection: portfolio
 ---
 
-Install from pypi with
+Check out the web version [here](https://slurm-script-generator.github.io)
 
-````
+You can install the CLI and Python API from PyPi with
+
+```
 pip install slurm-script-generator
 ```
 
