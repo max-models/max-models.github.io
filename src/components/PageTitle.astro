@@ -44,4 +44,11 @@ const { data } = Astro.locals.starlightRoute.entry;
 	.page-meta p + p {
 		margin-top: 0.25rem;
 	}
+	/* outside .sl-markdown-content, so Starlight's link colours don't apply */
+	.page-meta a {
+		color: var(--sl-color-text-accent);
+	}
+	.page-meta a:hover {
+		color: var(--sl-color-white);
+	}
 </style>

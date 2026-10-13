@@ -1,3 +1,5 @@
+// The theme's collections (@max-models/starlight-theme/content), with the extra frontmatter of the
+// publications, projects and outdoors pages.
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { docsLoader } from '@astrojs/starlight/loaders';
