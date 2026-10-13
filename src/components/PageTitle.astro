@@ -1,0 +1,47 @@
+---
+// Starlight's page title, followed by the reference of a publication or the date of a post.
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+import { citationHtml, formatDate } from '../lib/entries';
+
+const { data } = Astro.locals.starlightRoute.entry;
+---
+
+<Default />
+{
+	data.citation && (
+		<div class="page-meta">
+			<p set:html={citationHtml(data.citation)} />
+			<p>
+				{data.venue}
+				{data.date && <>{' · '}{data.date.getUTCFullYear()}</>}
+				{data.doi && (
+					<>
+						{' · '}
+						<a href={`https://doi.org/${data.doi}`}>doi:{data.doi}</a>
+					</>
+				)}
+			</p>
+		</div>
+	)
+}
+{
+	!data.citation && data.date && (
+		<div class="page-meta">
+			<p>
+				<time datetime={data.date.toISOString()}>{formatDate(data.date)}</time>
+				{data.tags && <>{' · '}{data.tags.join(', ')}</>}
+			</p>
+		</div>
+	)
+}
+
+<style>
+	.page-meta {
+		margin-top: 0.75rem;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+	}
+	.page-meta p + p {
+		margin-top: 0.25rem;
+	}
+</style>

@@ -1,0 +1,63 @@
+---
+// A card for each project, in sidebar order.
+import { getSection, href } from '../lib/entries';
+
+const projects = (await getSection('projects')).sort(
+	(a, b) => (a.data.sidebar.order ?? Infinity) - (b.data.sidebar.order ?? Infinity)
+);
+---
+
+<ul class="projects not-content">
+	{
+		projects.map((p) => (
+			<li>
+				<a href={href(p)}>
+					{p.data.image && <img src={p.data.image} alt="" loading="lazy" />}
+					<span class="title">{p.data.title}</span>
+					{p.data.description && <span class="description">{p.data.description}</span>}
+				</a>
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	.projects {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+		gap: 1rem;
+		list-style: none;
+		padding: 0;
+		margin-top: 1.5rem;
+	}
+	a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		height: 100%;
+		padding: 1rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.5rem;
+		text-decoration: none;
+		color: var(--sl-color-gray-2);
+	}
+	a:hover {
+		border-color: var(--sl-color-accent);
+		background: var(--sl-color-gray-7, var(--sl-color-gray-6));
+	}
+	img {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: contain;
+		border-radius: 0.25rem;
+		background: var(--sl-color-white);
+	}
+	.title {
+		font-weight: 600;
+		font-size: var(--sl-text-lg);
+		color: var(--sl-color-white);
+	}
+	.description {
+		font-size: var(--sl-text-sm);
+	}
+</style>
