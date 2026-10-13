@@ -1,7 +1,7 @@
 ---
-// Starlight's page title, followed by the reference of a publication or the date of a post.
+// Starlight's page title, followed by the reference of a publication.
 import Default from '@astrojs/starlight/components/PageTitle.astro';
-import { citationHtml, formatDate } from '../lib/entries';
+import { citationHtml } from '../lib/entries';
 
 const { data } = Astro.locals.starlightRoute.entry;
 ---
@@ -20,16 +20,6 @@ const { data } = Astro.locals.starlightRoute.entry;
 						<a href={`https://doi.org/${data.doi}`}>doi:{data.doi}</a>
 					</>
 				)}
-			</p>
-		</div>
-	)
-}
-{
-	!data.citation && data.date && (
-		<div class="page-meta">
-			<p>
-				<time datetime={data.date.toISOString()}>{formatDate(data.date)}</time>
-				{data.tags && <>{' · '}{data.tags.join(', ')}</>}
 			</p>
 		</div>
 	)

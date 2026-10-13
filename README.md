@@ -28,7 +28,6 @@ All pages are Markdown/MDX files in `src/content/docs/`; the path of a file is i
 | `index.mdx`     | Home page                                                  |
 | `publications/` | One page per publication, listed on `/publications/`       |
 | `projects/`     | One page per project, shown as cards on `/projects/`       |
-| `outdoors/`     | Trips and runs, listed on `/outdoors/`, newest first       |
 
 The extra frontmatter fields are defined in `src/content.config.ts`:
 
@@ -49,14 +48,6 @@ description: 3D Particle-in-cell code for simulating negative ion extraction
 image: https://...              # picture on the project card (optional)
 sidebar:
   order: 1                      # position on /projects/ and in the sidebar
-```
-
-```yaml
-# outdoors/bavarian-alps-traverse.md
-title: Bavarian Alps Traverse
-date: 2025-10-04
-description: A collection of trail runs crossing the Bavarian Alps from Lindau to Salzburg.
-tags: [Trail running, Germany, Austria]
 ```
 
 Static files (favicons, PDFs, ...) go in `public/`.

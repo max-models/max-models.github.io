@@ -1,5 +1,5 @@
 // The theme's collections (@max-models/starlight-theme/content), with the extra frontmatter of the
-// publications, projects and outdoors pages.
+// publications and projects pages.
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { docsLoader } from '@astrojs/starlight/loaders';
@@ -10,7 +10,7 @@ export const collections = {
 		loader: docsLoader(),
 		schema: docsSchema({
 			extend: z.object({
-				/** Publication date, or the date of an outdoors post. */
+				/** Publication date. */
 				date: z.coerce.date().optional(),
 				/** Publications: the heading they are grouped under on /publications/. */
 				category: z.enum(['manuscripts', 'conferences', 'books']).optional(),
@@ -20,8 +20,6 @@ export const collections = {
 				citation: z.string().optional(),
 				/** Projects: the picture on the card on /projects/. */
 				image: z.string().url().optional(),
-				/** Outdoors posts. */
-				tags: z.array(z.string()).optional(),
 			}),
 		}),
 	}),

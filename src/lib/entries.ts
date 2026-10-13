@@ -22,6 +22,3 @@ export function citationHtml(citation: string): string {
 		.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
 		.replace(/\*(.+?)\*/g, '<em>$1</em>');
 }
-
-export const formatDate = (date: Date) =>
-	date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });

@@ -11,13 +11,11 @@ export default defineDocs({
 	nav: [
 		{ label: 'Publications', link: '/publications/' },
 		{ label: 'Projects', link: '/projects/' },
-		{ label: 'Outdoors', link: '/outdoors/' },
 	],
 	sidebar: [
 		{ label: 'About', link: '/' },
 		{ label: 'Publications', link: '/publications/' },
 		{ label: 'Projects', items: [{ autogenerate: { directory: 'projects' } }] },
-		{ label: 'Outdoors', items: [{ autogenerate: { directory: 'outdoors' } }] },
 	],
 	starlight: {
 		favicon: '/favicon.svg',
@@ -51,8 +49,8 @@ export default defineDocs({
 			'/portfolio/7-cunumpy': '/projects/cunumpy/',
 			'/portfolio/8-maxplotlib': '/projects/maxplotlib/',
 			'/portfolio/9-slurm-script-generator': '/projects/slurm-script-generator/',
-			'/year-archive': '/outdoors/',
-			'/posts/2025/10/bavarian-alps-traverse': '/outdoors/bavarian-alps-traverse/',
+			'/year-archive': '/projects/strava-collections/',
+			'/posts/2025/10/bavarian-alps-traverse': '/projects/strava-collections/',
 			'/publication/2019-09-25-effects-of-the-extraction-voltage-on-the-beam-divergence': '/publications/2019-09-25-effects-of-the-extraction-voltage/',
 			'/publication/2021-08-03-effects-of-magnetic-field-topology': '/publications/2021-08-03-effects-of-magnetic-field-topology/',
 			'/publication/2021-09-20-beam-formation-studies-on-the-cern-is03b-h-source': '/publications/2021-09-20-beam-formation-studies/',
