@@ -1,7 +1,12 @@
 # max-models.github.io
 
-Personal website of Max Lindqvist, built with [Astro](https://astro.build) and
-[Starlight](https://starlight.astro.build) and served at https://max-models.github.io.
+Personal website of Max Lindqvist, built with [Astro](https://astro.build),
+[Starlight](https://starlight.astro.build) and the shared max-models theme
+[starlight-theme](https://github.com/max-models/starlight-theme), served at https://max-models.github.io.
+
+`astro.config.mjs` uses the theme's `defineDocs`, with the base path set to `/` (a user site is
+served at the root, not under `/<repo>/`). To update the theme, bump the tag:
+`npm install github:max-models/starlight-theme#vX.Y.Z`.
 
 ## Running locally
 
@@ -9,8 +14,8 @@ Requires Node.js 22.12 or newer.
 
 ```sh
 npm install
-npm run dev      # http://localhost:4321
-npm run build    # static site in dist/
+DOCS_VALIDATE_LINKS=false npm run dev   # http://localhost:4321, without the link check
+npm run build    # static site in dist/, with the link check
 npm run preview  # serve dist/
 ```
 
