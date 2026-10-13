@@ -1,0 +1,47 @@
+---
+// The posts of a section, newest first.
+import { byDate, formatDate, getSection, href } from '../lib/entries';
+
+interface Props {
+	section: string;
+}
+
+const posts = (await getSection(Astro.props.section)).sort(byDate);
+---
+
+<ul class="posts">
+	{
+		posts.map((post) => (
+			<li>
+				<a href={href(post)} class="title">
+					{post.data.title}
+				</a>
+				<span class="meta">
+					{post.data.date && <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>}
+					{post.data.tags && <> · {post.data.tags.join(', ')}</>}
+				</span>
+				{post.data.description && <span>{post.data.description}</span>}
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	.posts {
+		list-style: none;
+		padding: 0;
+	}
+	.posts li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		margin-top: 1.25rem;
+	}
+	.title {
+		font-weight: 600;
+	}
+	.meta {
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-2);
+	}
+</style>

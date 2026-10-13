@@ -1,0 +1,64 @@
+---
+// All publications, newest first, grouped by category.
+import { byDate, citationHtml, getSection, href } from '../lib/entries';
+
+const categories = [
+	{ key: 'manuscripts', title: 'Journal articles' },
+	{ key: 'conferences', title: 'Conference papers' },
+	{ key: 'books', title: 'Books' },
+] as const;
+
+const publications = (await getSection('publications')).sort(byDate);
+const groups = categories
+	.map((category) => ({ ...category, items: publications.filter((p) => p.data.category === category.key) }))
+	.filter((group) => group.items.length > 0);
+---
+
+{
+	groups.map((group) => (
+		<>
+			<h2 id={group.key}>{group.title}</h2>
+			<ul class="publications">
+				{group.items.map((p) => (
+					<li>
+						<a href={href(p)} class="title">
+							{p.data.title}
+						</a>
+						{p.data.citation && <span class="citation" set:html={citationHtml(p.data.citation)} />}
+						<span class="venue">
+							{p.data.venue}
+							{p.data.date && <> · {p.data.date.getUTCFullYear()}</>}
+							{p.data.doi && (
+								<>
+									{' '}
+									· <a href={`https://doi.org/${p.data.doi}`}>DOI</a>
+								</>
+							)}
+						</span>
+					</li>
+				))}
+			</ul>
+		</>
+	))
+}
+
+<style>
+	.publications {
+		list-style: none;
+		padding: 0;
+	}
+	.publications li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		margin-top: 1.25rem;
+	}
+	.title {
+		font-weight: 600;
+	}
+	.citation,
+	.venue {
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-2);
+	}
+</style>
