@@ -8,7 +8,7 @@ sidebar:
 One Astro + Starlight configuration, look and notebook pipeline for the documentation of the max-models projects (simgeometry, maybempi, mpiarray, patchwork, plasmacoll, ...), installed into each project's `docs/` instead of copied there. This website uses it too.
 
 ```sh
-npm install github:max-models/starlight-theme#v0.1.0
+npm install github:max-models/starlight-theme#v0.3.0
 ```
 
 ```js
