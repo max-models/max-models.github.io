@@ -12,6 +12,8 @@ export default defineDocs({
 		{ label: 'Publications', link: '/publications/' },
 		{ label: 'Projects', link: '/projects/' },
 	],
+	// the site has a Projects page of its own; no projects menu in the header
+	projects: false,
 	sidebar: [
 		{ label: 'About', link: '/' },
 		{ label: 'Publications', link: '/publications/' },
