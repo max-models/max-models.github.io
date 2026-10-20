@@ -1,0 +1,20 @@
+[
+	{ "repo": "cunumpy", "title": "cunumpy", "description": "NumPy on the CPU, CuPy on the GPU, one import" },
+	{ "repo": "maybempi", "title": "maybempi", "description": "MPI when launched under MPI, a serial stand-in otherwise" },
+	{ "repo": "mpiarray", "title": "mpiarray", "description": "Distributed NumPy/CuPy arrays with halo exchange" },
+	{ "repo": "simgeometry", "title": "simgeometry", "description": "Shapes, structured grids and domains" },
+	{ "repo": "patchwork", "title": "Patchwork", "description": "Block-structured adaptive meshes" },
+	{ "repo": "tree-d-3d", "title": "tree-d-3d", "description": "Barnes-Hut trees and fast multipole methods for charged particles" },
+	{ "repo": "plasmacoll", "title": "plasmacoll", "description": "Monte Carlo collisions with neutral gases" },
+	{ "repo": "picnic", "title": "picnic", "description": "Particle-in-cell tools for negative ions and other charged particles" },
+	{ "repo": "wellbalanced", "title": "wellbalanced", "description": "Global (0D) and 1D fluid models of low-temperature plasmas" },
+	{ "repo": "freeofcharge", "title": "freeofcharge", "description": "Neutral beams in tokamak plasmas" },
+	{ "repo": "mhd-sandbox", "title": "mhd-sandbox", "description": "Finite-volume ideal MHD on a periodic 2D grid" },
+	{ "repo": "plasma-plots", "title": "plasma-plots", "description": "Plots of labeled xarray plasma output" },
+	{ "repo": "maxplotlib", "title": "maxplotlib", "description": "Reproducible plots with several backends" },
+	{ "repo": "scope-profiler", "title": "scope-profiler", "description": "Profile code regions, optionally with LIKWID markers" },
+	{ "repo": "scope-profiler-catalog", "title": "Profiling catalogue", "description": "Profiling runs made with scope-profiler" },
+	{ "repo": "slurm-script-generator", "title": "slurm-script-generator", "description": "Generate Slurm job scripts" },
+	{ "repo": "gallery", "owner": "spokes3d", "title": "Magnetron gallery", "description": "Magnetron and spoke-formation studies" },
+	{ "repo": "starlight-theme", "title": "starlight-theme", "description": "The docs setup these sites share" }
+]
