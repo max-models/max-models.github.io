@@ -4,6 +4,22 @@ description: 2D block-structured adaptive meshes backed by mpiarray
 image: https://max-models.github.io/patchwork/figures/two_level_mesh.png
 sidebar:
   order: 13
+gallery:
+  - page: https://max-models.github.io/patchwork/getting-started/quickstart/
+    src: https://max-models.github.io/patchwork/figures/two_level_mesh.png
+    caption: "Density on a coarse grid with a fine patch"
+  - page: https://max-models.github.io/patchwork/getting-started/quickstart/
+    src: https://max-models.github.io/patchwork/figures/composite_poisson.png
+    caption: "Composite Poisson solution on a refined patch"
+  - page: https://max-models.github.io/patchwork/tutorials/06-regridding/
+    src: https://max-models.github.io/patchwork/tutorials/06-regridding/4.gif
+    caption: "Patches following a moving blob as the mesh is regridded"
+  - page: https://max-models.github.io/patchwork/tutorials/06-regridding/
+    src: https://max-models.github.io/patchwork/tutorials/06-regridding/2.png
+    caption: "Properly nested patches over a ring of tagged cells"
+  - page: https://max-models.github.io/patchwork/tutorials/04-non-rectangular-domains/
+    src: https://max-models.github.io/patchwork/tutorials/04-non-rectangular-domains/3.png
+    caption: "Potential in a non-rectangular domain, refined at the corners"
 ---
 
 Install from GitHub with
@@ -29,5 +45,3 @@ It includes composite Poisson solvers (cell-centered finite volumes, and a node-
 You can find the documentation [here](https://max-models.github.io/patchwork/).
 
 [Check out the code on GitHub!](https://github.com/max-models/patchwork)
-
-![Two-level mesh showing the coarse grid, a fine patch and a density field](https://max-models.github.io/patchwork/figures/two_level_mesh.png)

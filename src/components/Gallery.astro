@@ -1,0 +1,62 @@
+---
+// Figures from the documentation of a project, each linking to the page it is on.
+import { resolveFigures, type Figure } from '../lib/figures';
+
+interface Props {
+	figures: Figure[];
+}
+
+const figures = await resolveFigures(Astro.props.figures);
+---
+
+{
+	figures.length > 0 && (
+		<>
+			<h2 id="from-the-documentation">From the documentation</h2>
+			<ul class="gallery not-content">
+				{figures.map((f) => (
+					<li>
+						<a href={f.page}>
+							<img src={f.src} alt="" loading="lazy" />
+							<span>{f.caption}</span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</>
+	)
+}
+
+<style>
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+		gap: 1rem;
+		list-style: none;
+		padding: 0;
+	}
+	a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		height: 100%;
+		padding: 0.5rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.5rem;
+		text-decoration: none;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+	}
+	a:hover {
+		border-color: var(--sl-color-accent);
+		color: var(--sl-color-white);
+	}
+	img {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: contain;
+		border-radius: 0.25rem;
+		/* matplotlib output assumes a white page */
+		background: white;
+	}
+</style>

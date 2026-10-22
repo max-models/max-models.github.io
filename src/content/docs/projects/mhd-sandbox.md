@@ -2,6 +2,19 @@
 title: mhd-sandbox
 description: A finite-volume solver for two-dimensional ideal magnetohydrodynamics
 image: https://max-models.github.io/mhd-sandbox/tutorials/orszag-tang/1.png
+gallery:
+  - page: https://max-models.github.io/mhd-sandbox/tutorials/orszag-tang/
+    src: https://max-models.github.io/mhd-sandbox/tutorials/orszag-tang/1.png
+    caption: "Orszag–Tang vortex"
+  - page: https://max-models.github.io/mhd-sandbox/tutorials/test-problems/
+    src: https://max-models.github.io/mhd-sandbox/tutorials/test-problems/5.png
+    caption: "MHD rotor: magnetic pressure and plasma beta"
+  - page: https://max-models.github.io/mhd-sandbox/tutorials/test-problems/
+    src: https://max-models.github.io/mhd-sandbox/tutorials/test-problems/8.png
+    caption: "Magnetized blast wave: magnetic pressure and fast Mach number"
+  - page: https://max-models.github.io/mhd-sandbox/tutorials/multifluid/
+    src: https://max-models.github.io/mhd-sandbox/tutorials/multifluid/1.png
+    caption: "Thermal plasma and beam densities in a multifluid run"
 ---
 
 A small NumPy-based solver for ideal MHD on a periodic 2D grid, with notebooks for the Orszag–Tang vortex, MHD rotor, and magnetized blast wave.
@@ -23,5 +36,3 @@ print(result.steps, result.max_divergence_b)
 Documentation: [max-models.github.io/mhd-sandbox](https://max-models.github.io/mhd-sandbox/)
 
 [View the code on GitHub](https://github.com/max-models/mhd-sandbox) · [PyPI](https://pypi.org/project/mhd-sandbox/)
-
-![Orszag–Tang vortex simulation](https://max-models.github.io/mhd-sandbox/tutorials/orszag-tang/1.png)

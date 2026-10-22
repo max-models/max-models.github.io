@@ -4,6 +4,22 @@ description: Python wrapper for Matplotlib/Plotly, produce figures with consiste
 image: https://raw.githubusercontent.com/max-models/maxplotlib/main/README_files/figure-commonmark/cell-3-output-1.png
 sidebar:
   order: 8
+gallery:
+  - page: https://max-models.github.io/maxplotlib/tutorials/tutorial-06/
+    src: https://max-models.github.io/maxplotlib/tutorials/tutorial-06/1.png
+    caption: "Three curves on three layers"
+  - page: https://max-models.github.io/maxplotlib/tutorials/tutorial-03/
+    src: https://max-models.github.io/maxplotlib/tutorials/tutorial-03/2.png
+    caption: "A scatter plot coloured by distance"
+  - page: https://max-models.github.io/maxplotlib/tutorials/tutorial-03/
+    src: https://max-models.github.io/maxplotlib/tutorials/tutorial-03/3.png
+    caption: "A confidence band"
+  - page: https://max-models.github.io/maxplotlib/tutorials/tutorial-03/
+    src: https://max-models.github.io/maxplotlib/tutorials/tutorial-03/4.png
+    caption: "Measurements with error bars"
+  - page: https://max-models.github.io/maxplotlib/tutorials/tutorial-11-gantt-charts/
+    src: https://max-models.github.io/maxplotlib/tutorials/tutorial-11-gantt-charts/1.png
+    caption: "A Gantt chart"
 ---
 
 Install from PyPI with

@@ -1,6 +1,11 @@
 ---
 title: mpiparticles
 description: Distributed particle storage and migration for MPI codes
+image: https://max-models.github.io/mpiparticles/full-examples/owner-map/plot-1.png
+gallery:
+  - page: https://max-models.github.io/mpiparticles/full-examples/owner-map/
+    src: https://max-models.github.io/mpiparticles/full-examples/owner-map/plot-1.png
+    caption: "Which rank owns which particle"
 ---
 
 `mpiparticles` provides per-rank particle storage on NumPy or CuPy arrays, globally unique particle IDs, and migration between ranks. It also runs in serial without making MPI calls.

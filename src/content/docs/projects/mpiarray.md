@@ -4,6 +4,22 @@ description: Distributed NumPy/CuPy arrays over MPI with halo exchange, created 
 image: https://max-models.github.io/mpiarray/guides/heat-equation/1.png
 sidebar:
   order: 10
+gallery:
+  - page: https://max-models.github.io/mpiarray/guides/heat-equation/
+    src: https://max-models.github.io/mpiarray/guides/heat-equation/1.png
+    caption: "Heat equation solved on a distributed mpiarray"
+  - page: https://max-models.github.io/mpiarray/guides/xarray/
+    src: https://max-models.github.io/mpiarray/guides/xarray/1.png
+    caption: "A Gaussian field split over four ranks"
+  - page: https://max-models.github.io/mpiarray/guides/xarray/
+    src: https://max-models.github.io/mpiarray/guides/xarray/3.png
+    caption: "Eₓ of a distributed array, with the rank boundaries dashed"
+  - page: https://max-models.github.io/mpiarray/guides/particles/
+    src: https://max-models.github.io/mpiarray/guides/particles/1.png
+    caption: "Charge deposited from particles onto a distributed grid"
+  - page: https://max-models.github.io/mpiarray/guides/layouts/
+    src: https://max-models.github.io/mpiarray/guides/layouts/1.png
+    caption: "Rows rebalanced over the ranks by cost"
 ---
 
 Install from PyPI with
@@ -32,5 +48,3 @@ It covers halo updates for stencils and particle deposition, NumPy's operators, 
 You can find the documentation and guides [here](https://max-models.github.io/mpiarray/).
 
 [Check out the code on GitHub!](https://github.com/max-models/mpiarray)
-
-![Heat equation solved on a distributed mpiarray](https://max-models.github.io/mpiarray/guides/heat-equation/1.png)

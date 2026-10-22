@@ -20,6 +20,19 @@ export const collections = {
 				citation: z.string().optional(),
 				/** Projects: the picture on the card on /projects/. */
 				image: z.string().url().optional(),
+				/** Projects: figures from the project's documentation, below the page (src/lib/figures.ts). */
+				gallery: z
+					.array(
+						z
+							.object({
+								page: z.string().url(),
+								src: z.string().url().optional(),
+								match: z.string().optional(),
+								caption: z.string(),
+							})
+							.refine((f) => f.src || f.match, 'a figure needs src or match')
+					)
+					.optional(),
 			}),
 		}),
 	}),
