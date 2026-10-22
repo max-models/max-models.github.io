@@ -33,6 +33,7 @@ export default defineDocs({
 		customCss: ['./src/styles/custom.css'],
 		components: {
 			PageTitle: './src/components/PageTitle.astro',
+			MarkdownContent: './src/components/MarkdownContent.astro',
 		},
 	},
 	astro: {

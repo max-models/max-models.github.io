@@ -4,6 +4,22 @@ description: Profile Python code with mpi4py and LIKWID
 image: https://max-models.github.io/scope-profiler/figures/cli/durations_plot_total.png
 sidebar:
   order: 6
+gallery:
+  - page: https://max-models.github.io/scope-profiler/guide/plot-cli/
+    src: https://max-models.github.io/scope-profiler/figures/cli/durations_plot_total.png
+    caption: "Total duration of each region"
+  - page: https://max-models.github.io/scope-profiler/guide/06-custom-plots/
+    src: https://max-models.github.io/scope-profiler/guide/06-custom-plots/1.png
+    caption: "Timeline of a single run"
+  - page: https://max-models.github.io/scope-profiler/guide/06-custom-plots/
+    src: https://max-models.github.io/scope-profiler/guide/06-custom-plots/5.png
+    caption: "A reconstructed call stack"
+  - page: https://max-models.github.io/scope-profiler/guide/06-custom-plots/
+    src: https://max-models.github.io/scope-profiler/guide/06-custom-plots/4.png
+    caption: "Total against self time per region"
+  - page: https://max-models.github.io/scope-profiler/guide/overhead/
+    src: https://max-models.github.io/scope-profiler/figures/benchmark_overhead.png
+    caption: "Profiling overhead per call, by region type"
 ---
 
 Install from PyPI with
@@ -39,5 +55,3 @@ The same API supports MPI, native code instrumentation, tags, sampling, pytest p
 Links:
 
 - https://pypi.org/project/scope-profiler/
-
-![Profile duration chart](https://max-models.github.io/scope-profiler/figures/cli/durations_plot_total.png)

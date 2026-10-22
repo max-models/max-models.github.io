@@ -4,6 +4,22 @@ description: Python interface to generate (readable) TikZ figures
 image: https://github.com/max-models/tikzfigure/raw/devel/README_files/figure-markdown_strict/fig-tikzfigure-output-1.png
 sidebar:
   order: 4
+gallery:
+  - page: https://max-models.github.io/tikzfigure/tutorials/tutorial-12-2d-plots-styling/
+    src: https://max-models.github.io/tikzfigure/tutorials/tutorial-12-2d-plots-styling/1.png
+    caption: "A styled 2D plot"
+  - page: https://max-models.github.io/tikzfigure/tutorials/tutorial-10-math-expressions/
+    src: https://max-models.github.io/tikzfigure/tutorials/tutorial-10-math-expressions/1.png
+    caption: "Coordinates from math expressions"
+  - page: https://max-models.github.io/tikzfigure/tutorials/tutorial-18-shading-and-patterns/
+    src: https://max-models.github.io/tikzfigure/tutorials/tutorial-18-shading-and-patterns/1.png
+    caption: "Shadings"
+  - page: https://max-models.github.io/tikzfigure/tutorials/tutorial-26-gantt/
+    src: https://max-models.github.io/tikzfigure/tutorials/tutorial-26-gantt/1.png
+    caption: "A Gantt chart"
+  - page: https://max-models.github.io/tikzfigure/tutorials/tutorial-22-calendar/
+    src: https://max-models.github.io/tikzfigure/tutorials/tutorial-22-calendar/1.png
+    caption: "A year calendar"
 ---
 
 Install from PyPI with:

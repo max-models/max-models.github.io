@@ -1,6 +1,20 @@
 ---
 title: beamtracer
 description: Self-consistent ion beam extraction, transport and neutralization
+image: https://max-models.github.io/beamtracer/tutorials/negative-ion-beamlet-optimization/3.png
+gallery:
+  - page: https://max-models.github.io/beamtracer/tutorials/negative-ion-beamlet-optimization/
+    src: https://max-models.github.io/beamtracer/tutorials/negative-ion-beamlet-optimization/3.png
+    caption: "The best H⁻ beamlet design, traced on the fine mesh"
+  - page: https://max-models.github.io/beamtracer/tutorials/einzel-lens-optimization/
+    src: https://max-models.github.io/beamtracer/tutorials/einzel-lens-optimization/2.png
+    caption: "An Einzel lens focusing a proton beam onto the target"
+  - page: https://max-models.github.io/beamtracer/tutorials/einzel-lens-optimization/
+    src: https://max-models.github.io/beamtracer/tutorials/einzel-lens-optimization/4.png
+    caption: "Spot size at the target against the middle voltage, for three beam currents"
+  - page: https://max-models.github.io/beamtracer/tutorials/negative-ion-beamlet-optimization/
+    src: https://max-models.github.io/beamtracer/tutorials/negative-ion-beamlet-optimization/1.png
+    caption: "H⁻ beamlet divergence against the extraction voltage"
 ---
 
 Trace steady positive or negative ion beams through electrodes and solenoids while solving their self-consistent space-charge field. `beamtracer` supports planar and cylindrical geometry, multiple compute backends, and design optimization.

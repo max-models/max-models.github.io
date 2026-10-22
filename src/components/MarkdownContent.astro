@@ -1,0 +1,12 @@
+---
+// Starlight's page content, followed by the figures of a project page.
+import Default from '@astrojs/starlight/components/MarkdownContent.astro';
+import Gallery from './Gallery.astro';
+
+const { gallery } = Astro.locals.starlightRoute.entry.data;
+---
+
+<Default>
+	<slot />
+	{gallery && <Gallery figures={gallery} />}
+</Default>
