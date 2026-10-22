@@ -8,7 +8,14 @@ Trace steady positive or negative ion beams through electrodes and solenoids whi
 Define the grid, electrode potentials, and injected species, then run the self-consistent Vlasov iteration:
 
 ```python
-from beamtracer import BeamOptics, BeamOpticsConfig, BeamSpecies, FieldBCs, FieldBoundaryCondition, GridParams
+from beamtracer import (
+    BeamOptics,
+    BeamOpticsConfig,
+    BeamSpecies,
+    FieldBCs,
+    FieldBoundaryCondition,
+    GridParams,
+)
 
 zero_flux = FieldBoundaryCondition.neumann(0.0)
 config = BeamOpticsConfig(
@@ -19,7 +26,9 @@ config = BeamOpticsConfig(
         y_lower=zero_flux,
         y_upper=zero_flux,
     ),
-    beams=[BeamSpecies("H+", 10.0, (0.0, 0.0), (0.0, 5e-3), energy=0.01, num_particles=40)],
+    beams=[
+        BeamSpecies("H+", 10.0, (0.0, 0.0), (0.0, 5e-3), energy=0.01, num_particles=40)
+    ],
 )
 model = BeamOptics(config).run()
 ```

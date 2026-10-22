@@ -16,7 +16,7 @@ comm = maybempi.get_mpi().COMM_WORLD
 domain = BoxDecomposition(comm, [0.0, 0.0], [1.0, 1.0], proc_sizes=[1, comm.size])
 store = ParticleStore(ndim=2, nvel=3, id_allocator=IdAllocator.from_comm(comm))
 store.add(xp.asarray([[0.2, 0.7], [0.4, 0.9]]), xp.zeros((3, 2)))
-store.positions[:, :store.length] += 0.1
+store.positions[:, : store.length] += 0.1
 sent, received = migrate(store, domain)
 ```
 

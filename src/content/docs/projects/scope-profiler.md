@@ -18,6 +18,7 @@ Mark the regions you want to measure, then run the script through the CLI to sav
 import scope_profiler as sp
 
 with sp.session():
+
     @sp.profile("main")
     def main():
         with sp.region("work"):
