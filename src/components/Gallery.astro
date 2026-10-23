@@ -1,5 +1,6 @@
 ---
-// Figures from the documentation of a project, each linking to the page it is on.
+// Figures from the documentation of a project, each linking to the page it is on. A figure with
+// Plotly JSON gets a button that replaces the picture by the interactive plot, loaded on click.
 import { resolveFigures, type Figure } from '../lib/figures';
 
 interface Props {
@@ -15,17 +16,71 @@ const figures = await resolveFigures(Astro.props.figures);
 			<h2 id="from-the-documentation">From the documentation</h2>
 			<ul class="gallery not-content">
 				{figures.map((f) => (
-					<li>
+					<li data-plotly={f.plotly}>
+						{f.plotly && <div class="plot" />}
 						<a href={f.page}>
 							<img src={f.src} alt="" loading="lazy" />
 							<span>{f.caption}</span>
 						</a>
+						{f.plotly && (
+							<button type="button" class="interact">
+								Rotate in 3D
+							</button>
+						)}
 					</li>
 				))}
 			</ul>
 		</>
 	)
 }
+
+<script>
+	// The 3D bundle of Plotly (scatter3d, surface, ...), from the CDN, only once a plot is asked for
+	const PLOTLY = {
+		src: 'https://cdn.jsdelivr.net/npm/plotly.js-gl3d-dist-min@3.1.0/plotly-gl3d.min.js',
+		integrity: 'sha384-ckTNZtMoZw1W5QVM1He2mNtRyvwAbSJ0V1eNAkIfXBcfvMTnCVYQpwGh8IpPDzsc',
+	};
+
+	let plotly: Promise<any> | undefined;
+
+	function loadPlotly(): Promise<any> {
+		plotly ??= new Promise((resolve, reject) => {
+			const script = Object.assign(document.createElement('script'), { ...PLOTLY, crossOrigin: 'anonymous' });
+			script.onload = () => resolve((window as any).Plotly);
+			script.onerror = () => {
+				plotly = undefined;
+				reject(new Error('Plotly did not load'));
+			};
+			document.head.append(script);
+		});
+		return plotly;
+	}
+
+	for (const button of document.querySelectorAll<HTMLButtonElement>('.gallery .interact')) {
+		const item = button.closest<HTMLElement>('[data-plotly]')!;
+		button.addEventListener('click', async () => {
+			button.disabled = true;
+			button.textContent = 'Loading…';
+			try {
+				const [Plotly, figure] = await Promise.all([
+					loadPlotly(),
+					fetch(item.dataset.plotly!).then((r) => r.json()),
+				]);
+				item.classList.add('active');
+				await Plotly.newPlot(item.querySelector('.plot'), {
+					...figure,
+					layout: { ...figure.layout, autosize: true, width: undefined, height: undefined },
+					config: { responsive: true, displaylogo: false },
+				});
+				button.remove();
+			} catch {
+				item.classList.remove('active');
+				button.disabled = false;
+				button.textContent = 'Could not load: try again';
+			}
+		});
+	}
+</script>
 
 <style>
 	.gallery {
@@ -34,6 +89,9 @@ const figures = await resolveFigures(Astro.props.figures);
 		gap: 1rem;
 		list-style: none;
 		padding: 0;
+	}
+	li {
+		position: relative;
 	}
 	a {
 		display: flex;
@@ -58,5 +116,42 @@ const figures = await resolveFigures(Astro.props.figures);
 		border-radius: 0.25rem;
 		/* matplotlib output assumes a white page */
 		background: white;
+	}
+	.interact {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		padding: 0.25rem 0.75rem;
+		border: none;
+		border-radius: 999px;
+		background: var(--sl-color-accent);
+		color: var(--sl-color-black);
+		font-size: var(--sl-text-xs);
+		font-weight: 600;
+		cursor: pointer;
+	}
+	.interact:hover {
+		background: var(--sl-color-accent-high);
+	}
+	.plot {
+		display: none;
+	}
+	/* the interactive plot takes the whole row, above its caption */
+	.active {
+		grid-column: 1 / -1;
+	}
+	.active .plot {
+		display: block;
+		height: min(36rem, 75vh);
+		margin-bottom: 0.5rem;
+		border-radius: 0.5rem;
+		overflow: hidden;
+		background: white;
+	}
+	.active img {
+		display: none;
+	}
+	.active a {
+		height: auto;
 	}
 </style>

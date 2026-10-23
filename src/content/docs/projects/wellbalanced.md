@@ -24,7 +24,7 @@ gallery:
 
 Use the global model for fast steady-state calculations and parameter scans; the 1D and 2D models resolve spatial transport and magnetron spokes. The models include reaction networks, wall and cusp losses, gas feed and pumping, and beam sources for coupled studies.
 
-It is used alongside [beamtracer](/projects/beamtracer/) to model plasma neutralizers and with [PICNIC](/projects/picnic/) in particle-fluid workflows.
+It is used alongside [beamtracer](/projects/beamtracer/) to model plasma neutralizers.
 
 Documentation: [max-models.github.io/wellbalanced](https://max-models.github.io/wellbalanced/)
 

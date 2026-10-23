@@ -21,7 +21,17 @@ export default defineDocs({
 	],
 	starlight: {
 		favicon: '/favicon.svg',
-		head: [{ tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/apple-touch-icon-180x180.png' } }],
+		head: [
+			{ tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/apple-touch-icon-180x180.png' } },
+			// the preview of a link to the site, e.g. on LinkedIn
+			{ tag: 'meta', attrs: { property: 'og:image', content: 'https://max-models.github.io/og-image.png' } },
+			{ tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
+			{ tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
+			{
+				tag: 'meta',
+				attrs: { property: 'og:image:alt', content: 'Max Lindqvist: high-performance computing and simulation software for plasma and fusion physics' },
+			},
+		],
 		social: [
 			{ icon: 'github', label: 'GitHub', href: 'https://github.com/max-models' },
 			{ icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/maxlindqv' },

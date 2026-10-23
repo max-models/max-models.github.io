@@ -6,3 +6,8 @@
 	aspect-ratio: 1;
 	object-fit: cover;
 }
+
+/* An odd last card of a card grid (the contact card on the home page) takes the whole row. */
+.card-grid > :last-child:nth-child(odd) {
+	grid-column: 1 / -1;
+}

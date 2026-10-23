@@ -20,6 +20,8 @@ export const collections = {
 				citation: z.string().optional(),
 				/** Projects: the picture on the card on /projects/. */
 				image: z.string().url().optional(),
+				/** Projects: shown first on /projects/, on a larger card. */
+				featured: z.boolean().optional(),
 				/** Projects: figures from the project's documentation, below the page (src/lib/figures.ts). */
 				gallery: z
 					.array(
@@ -28,6 +30,8 @@ export const collections = {
 								page: z.string().url(),
 								src: z.string().url().optional(),
 								match: z.string().optional(),
+								/** The figure as Plotly JSON, which a button turns into an interactive plot. */
+								plotly: z.string().url().optional(),
 								caption: z.string(),
 							})
 							.refine((f) => f.src || f.match, 'a figure needs src or match')

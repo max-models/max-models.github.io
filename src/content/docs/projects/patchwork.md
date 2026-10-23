@@ -2,6 +2,7 @@
 title: patchwork
 description: 2D block-structured adaptive meshes backed by mpiarray
 image: https://max-models.github.io/patchwork/figures/two_level_mesh.png
+featured: true
 sidebar:
   order: 13
 gallery:
