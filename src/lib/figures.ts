@@ -8,12 +8,15 @@ export interface Figure {
 	src?: string;
 	/** the first image on `page` whose alt text starts with this. */
 	match?: string;
+	/** The figure as Plotly JSON, for an interactive version. */
+	plotly?: string;
 	caption: string;
 }
 
 export interface ResolvedFigure {
 	page: string;
 	src: string;
+	plotly?: string;
 	caption: string;
 }
 
@@ -56,9 +59,9 @@ async function findImage(page: string, match: string): Promise<string | undefine
  */
 export async function resolveFigures(figures: Figure[]): Promise<ResolvedFigure[]> {
 	const resolved = await Promise.all(
-		figures.map(async ({ page, src, match, caption }) => {
+		figures.map(async ({ page, src, match, plotly, caption }) => {
 			const url = src ?? (match === undefined ? undefined : await findImage(page, match));
-			if (url && (await exists(url))) return { page, src: url, caption };
+			if (url && (await exists(url))) return { page, src: url, plotly, caption };
 			console.warn(`[gallery] left out a figure that is not found: ${src ?? `"${match}" on ${page}`}`);
 		})
 	);
