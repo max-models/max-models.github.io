@@ -12,6 +12,7 @@
 	{ "repo": "freeofcharge", "title": "freeofcharge", "description": "Neutral beams in tokamak plasmas" },
 	{ "repo": "mhd-sandbox", "title": "mhd-sandbox", "description": "Finite-volume ideal MHD on a periodic 2D grid" },
 	{ "repo": "plasma-plots", "title": "plasma-plots", "description": "Plots of labeled xarray plasma output" },
+	{ "repo": "plasma-posters", "title": "plasma-posters", "description": "Scientific posters from Python, compiled to PDF" },
 	{ "repo": "maxplotlib", "title": "maxplotlib", "description": "Reproducible plots with several backends" },
 	{ "repo": "scope-profiler", "title": "scope-profiler", "description": "Profile code regions, optionally with LIKWID markers" },
 	{ "repo": "scope-profiler-catalog", "title": "Profiling catalogue", "description": "Profiling runs made with scope-profiler" },
