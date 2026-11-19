@@ -1,7 +1,7 @@
 ---
 title: plasmacoll
 description: Monte Carlo collisions of charged particles with neutral gases, on NumPy or CuPy arrays
-image: https://max-models.github.io/plasmacoll/tutorials/03-ionization-attachment/1.png
+image: /thumbnails/plasmacoll.png
 sidebar:
   order: 14
 gallery:

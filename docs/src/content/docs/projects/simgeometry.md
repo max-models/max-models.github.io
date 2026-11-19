@@ -1,7 +1,7 @@
 ---
 title: simgeometry
 description: Shapes, structured grids and simulation domains for numerical simulations
-image: https://max-models.github.io/simgeometry/tutorials/shapes-and-node-masks/1.png
+image: /thumbnails/simgeometry.png
 sidebar:
   order: 12
 gallery:

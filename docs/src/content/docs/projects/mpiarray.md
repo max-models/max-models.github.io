@@ -1,7 +1,7 @@
 ---
 title: mpiarray
 description: Distributed NumPy/CuPy arrays over MPI with halo exchange, created like NumPy arrays
-image: https://max-models.github.io/mpiarray/guides/heat-equation/1.png
+image: /thumbnails/mpiarray.png
 sidebar:
   order: 10
 gallery:
