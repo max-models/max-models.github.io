@@ -1,7 +1,7 @@
 ---
 title: wellbalanced
 description: Global and fluid models of low-temperature plasmas
-image: https://max-models.github.io/wellbalanced/full-examples/rf-driver-inductive-field-2d/plot-3.png
+image: /thumbnails/wellbalanced.png
 gallery:
   - page: https://max-models.github.io/wellbalanced/full-examples/rf-driver-inductive-field-2d/
     src: https://max-models.github.io/wellbalanced/full-examples/rf-driver-inductive-field-2d/plot-3.png

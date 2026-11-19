@@ -1,7 +1,7 @@
 ---
 title: beamtracer
 description: Self-consistent ion beam extraction, transport and neutralization
-image: https://max-models.github.io/beamtracer/tutorials/negative-ion-beamlet-optimization/3.png
+image: /thumbnails/beamtracer.png
 gallery:
   - page: https://max-models.github.io/beamtracer/tutorials/negative-ion-beamlet-optimization/
     src: https://max-models.github.io/beamtracer/tutorials/negative-ion-beamlet-optimization/3.png
