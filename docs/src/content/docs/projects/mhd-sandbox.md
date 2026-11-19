@@ -1,7 +1,7 @@
 ---
 title: mhd-sandbox
 description: A finite-volume solver for two-dimensional ideal magnetohydrodynamics
-image: https://max-models.github.io/mhd-sandbox/tutorials/orszag-tang/1.png
+image: /thumbnails/mhd-sandbox.png
 gallery:
   - page: https://max-models.github.io/mhd-sandbox/tutorials/orszag-tang/
     src: https://max-models.github.io/mhd-sandbox/tutorials/orszag-tang/1.png
