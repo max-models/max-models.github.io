@@ -1,7 +1,7 @@
 ---
 title: scope-profiler
 description: Profile Python code with mpi4py and LIKWID
-image: https://max-models.github.io/scope-profiler/figures/cli/durations_plot_total.png
+image: /thumbnails/scope-profiler.png
 featured: true
 sidebar:
   order: 6
