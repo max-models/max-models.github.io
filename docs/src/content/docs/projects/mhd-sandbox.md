@@ -3,17 +3,17 @@ title: mhd-sandbox
 description: A finite-volume solver for two-dimensional ideal magnetohydrodynamics
 image: /thumbnails/mhd-sandbox.png
 gallery:
-  - page: https://max-models.github.io/mhd-sandbox/tutorials/orszag-tang/
-    src: https://max-models.github.io/mhd-sandbox/tutorials/orszag-tang/1.png
+  - page: https://max-models.github.io/mhd-sandbox/examples/orszag-tang/
+    src: https://max-models.github.io/mhd-sandbox/examples/orszag-tang/1.png
     caption: "Orszag–Tang vortex"
-  - page: https://max-models.github.io/mhd-sandbox/tutorials/test-problems/
-    src: https://max-models.github.io/mhd-sandbox/tutorials/test-problems/5.png
+  - page: https://max-models.github.io/mhd-sandbox/examples/test-problems/
+    src: https://max-models.github.io/mhd-sandbox/examples/test-problems/5.png
     caption: "MHD rotor: magnetic pressure and plasma beta"
-  - page: https://max-models.github.io/mhd-sandbox/tutorials/test-problems/
-    src: https://max-models.github.io/mhd-sandbox/tutorials/test-problems/8.png
+  - page: https://max-models.github.io/mhd-sandbox/examples/test-problems/
+    src: https://max-models.github.io/mhd-sandbox/examples/test-problems/8.png
     caption: "Magnetized blast wave: magnetic pressure and fast Mach number"
-  - page: https://max-models.github.io/mhd-sandbox/tutorials/multifluid/
-    src: https://max-models.github.io/mhd-sandbox/tutorials/multifluid/1.png
+  - page: https://max-models.github.io/mhd-sandbox/examples/multifluid/
+    src: https://max-models.github.io/mhd-sandbox/examples/multifluid/1.png
     caption: "Thermal plasma and beam densities in a multifluid run"
 ---
 

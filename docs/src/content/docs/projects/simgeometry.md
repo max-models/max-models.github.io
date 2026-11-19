@@ -5,23 +5,23 @@ image: /thumbnails/simgeometry.png
 sidebar:
   order: 12
 gallery:
-  - page: https://max-models.github.io/simgeometry/tutorials/shapes-and-node-masks/
-    src: https://max-models.github.io/simgeometry/tutorials/shapes-and-node-masks/1.png
+  - page: https://max-models.github.io/simgeometry/examples/shapes-and-node-masks/
+    src: https://max-models.github.io/simgeometry/examples/shapes-and-node-masks/1.png
     caption: "Grid nodes selected by Circle.node_mask"
-  - page: https://max-models.github.io/simgeometry/tutorials/shapes-and-node-masks/
-    src: https://max-models.github.io/simgeometry/tutorials/shapes-and-node-masks/3.png
+  - page: https://max-models.github.io/simgeometry/examples/shapes-and-node-masks/
+    src: https://max-models.github.io/simgeometry/examples/shapes-and-node-masks/3.png
     caption: "A tilted cylinder, a tube with rounded edges, a cone and a tilted torus"
-  - page: https://max-models.github.io/simgeometry/tutorials/building-composite-shapes/
-    src: https://max-models.github.io/simgeometry/tutorials/building-composite-shapes/5.png
+  - page: https://max-models.github.io/simgeometry/examples/building-composite-shapes/
+    src: https://max-models.github.io/simgeometry/examples/building-composite-shapes/5.png
     caption: "Union, intersection and difference of shapes"
-  - page: https://max-models.github.io/simgeometry/tutorials/inspecting-geometry/
-    src: https://max-models.github.io/simgeometry/tutorials/inspecting-geometry/4.png
+  - page: https://max-models.github.io/simgeometry/examples/inspecting-geometry/
+    src: https://max-models.github.io/simgeometry/examples/inspecting-geometry/4.png
     caption: "A torus, a post and a ring"
-  - page: https://max-models.github.io/simgeometry/tutorials/parallel-grids/
-    src: https://max-models.github.io/simgeometry/tutorials/parallel-grids/1.png
+  - page: https://max-models.github.io/simgeometry/examples/parallel-grids/
+    src: https://max-models.github.io/simgeometry/examples/parallel-grids/1.png
     caption: "Eight subdomains, one colour per rank, around a sphere"
-  - page: https://max-models.github.io/simgeometry/tutorials/sampling-export-and-diagnostics/
-    src: https://max-models.github.io/simgeometry/tutorials/sampling-export-and-diagnostics/2.png
+  - page: https://max-models.github.io/simgeometry/examples/sampling-export-and-diagnostics/
+    src: https://max-models.github.io/simgeometry/examples/sampling-export-and-diagnostics/2.png
     caption: "Interior and surface samples of two tori"
 ---
 

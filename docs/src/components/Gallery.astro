@@ -1,6 +1,7 @@
 ---
-// Figures from the documentation of a project, each linking to the page it is on. A figure with
-// Plotly JSON gets a button that replaces the picture by the interactive plot, loaded on click.
+// Figures from the documentation of a project, each linking to the page it is on. A figure with a
+// picture and Plotly JSON gets a button that replaces the picture by the interactive plot, loaded
+// on click; a figure with only Plotly JSON is drawn as a static plot once it scrolls into view.
 import { resolveFigures, type Figure } from '../lib/figures';
 
 interface Props {
@@ -16,13 +17,13 @@ const figures = await resolveFigures(Astro.props.figures);
 			<h2 id="from-the-documentation">From the documentation</h2>
 			<ul class="gallery not-content">
 				{figures.map((f) => (
-					<li data-plotly={f.plotly}>
-						{f.plotly && <div class="plot" />}
+					<li data-plotly={f.plotly} class:list={{ 'plotly-only': !f.src }}>
+						{f.src && f.plotly && <div class="plot" />}
 						<a href={f.page}>
-							<img src={f.src} alt="" loading="lazy" />
+							{f.src ? <img src={f.src} alt="" loading="lazy" /> : <div class="tile" role="img" aria-label={f.caption} />}
 							<span>{f.caption}</span>
 						</a>
-						{f.plotly && (
+						{f.src && f.plotly && (
 							<button type="button" class="interact">
 								Rotate in 3D
 							</button>
@@ -35,10 +36,10 @@ const figures = await resolveFigures(Astro.props.figures);
 }
 
 <script>
-	// The 3D bundle of Plotly (scatter3d, surface, ...), from the CDN, only once a plot is asked for
+	// Plotly (all trace types: heatmaps, contours, 3D), from the CDN, only once a plot is needed
 	const PLOTLY = {
-		src: 'https://cdn.jsdelivr.net/npm/plotly.js-gl3d-dist-min@3.1.0/plotly-gl3d.min.js',
-		integrity: 'sha384-ckTNZtMoZw1W5QVM1He2mNtRyvwAbSJ0V1eNAkIfXBcfvMTnCVYQpwGh8IpPDzsc',
+		src: 'https://cdn.jsdelivr.net/npm/plotly.js-dist-min@3.1.0/plotly.min.js',
+		integrity: 'sha384-DAxS2fhSGacPW3IdpTjDpu+KotwjM8aHsfrkZRnfYyJIhAHoDav7jAJ+NmYcp6PL',
 	};
 
 	let plotly: Promise<any> | undefined;
@@ -55,6 +56,49 @@ const figures = await resolveFigures(Astro.props.figures);
 		});
 		return plotly;
 	}
+
+	// A figure the docs draw only with Plotly: a small static plot on the white tile, without
+	// legend, titles or tick labels, drawn when it comes into view.
+	async function drawTile(item: HTMLElement) {
+		const tile = item.querySelector<HTMLElement>('.tile')!;
+		try {
+			const [Plotly, figure] = await Promise.all([loadPlotly(), fetch(item.dataset.plotly!).then((r) => r.json())]);
+			const layout = { xaxis: {}, yaxis: {}, ...figure.layout };
+			// no tick labels or axis titles: they do not fit on a tile
+			for (const key of Object.keys(layout).filter((k) => /^[xy]axis\d*$/.test(k)))
+				layout[key] = { ...layout[key], showticklabels: false, title: undefined };
+			await Plotly.newPlot(
+				tile,
+				figure.data,
+				{
+					...layout,
+					title: undefined,
+					showlegend: false,
+					autosize: true,
+					width: undefined,
+					height: undefined,
+					margin: { l: 8, r: 8, t: 8, b: 8 },
+					paper_bgcolor: 'white',
+					plot_bgcolor: 'white',
+					font: { ...layout.font, color: '#333' },
+				},
+				{ staticPlot: true, responsive: true, displayModeBar: false }
+			);
+		} catch {
+			tile.classList.add('failed');
+		}
+	}
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries.filter((e) => e.isIntersecting)) {
+				observer.unobserve(entry.target);
+				drawTile(entry.target as HTMLElement);
+			}
+		},
+		{ rootMargin: '200px' }
+	);
+	for (const item of document.querySelectorAll<HTMLElement>('.gallery .plotly-only')) observer.observe(item);
 
 	for (const button of document.querySelectorAll<HTMLButtonElement>('.gallery .interact')) {
 		const item = button.closest<HTMLElement>('[data-plotly]')!;
@@ -109,13 +153,21 @@ const figures = await resolveFigures(Astro.props.figures);
 		border-color: var(--sl-color-accent);
 		color: var(--sl-color-white);
 	}
-	img {
+	img,
+	.tile {
 		width: 100%;
 		aspect-ratio: 4 / 3;
 		object-fit: contain;
 		border-radius: 0.25rem;
 		/* matplotlib output assumes a white page */
 		background: white;
+	}
+	.tile {
+		overflow: hidden;
+	}
+	/* the hover of the plot would take the clicks of the link */
+	.tile :global(.js-plotly-plot) {
+		pointer-events: none;
 	}
 	.interact {
 		position: absolute;
