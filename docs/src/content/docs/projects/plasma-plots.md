@@ -1,7 +1,7 @@
 ---
 title: plasma-plots
 description: Plots and diagnostics of labeled xarray output from plasma simulations, such as Struphy
-image: https://max-models.github.io/plasma-plots/figures/2d_isosurface.gif
+image: /thumbnails/plasma-plots.gif
 sidebar:
   order: 15
 gallery:

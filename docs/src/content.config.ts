@@ -18,8 +18,11 @@ export const collections = {
 				doi: z.string().optional(),
 				/** Author list and reference, with **bold** and *italics*. */
 				citation: z.string().optional(),
-				/** Projects: the picture on the card on /projects/. */
-				image: z.string().url().optional(),
+				/**
+				 * Projects: the picture on the card on /projects/, a file in public/thumbnails/ (a path
+				 * from the site root), so it does not depend on the build of another docs site.
+				 */
+				image: z.string().regex(/^(\/|https:\/\/)/, 'a path from the site root or a URL').optional(),
 				/** Projects: shown first on /projects/, on a larger card. */
 				featured: z.boolean().optional(),
 				/** Projects: figures from the project's documentation, below the page (src/lib/figures.ts). */

@@ -1,7 +1,7 @@
 ---
 title: maxplotlib
 description: Python wrapper for Matplotlib/Plotly, produce figures with consistent formatting
-image: https://raw.githubusercontent.com/max-models/maxplotlib/main/README_files/figure-commonmark/cell-3-output-1.png
+image: /thumbnails/maxplotlib.png
 sidebar:
   order: 8
 gallery:

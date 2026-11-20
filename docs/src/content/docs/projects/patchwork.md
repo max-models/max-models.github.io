@@ -1,7 +1,7 @@
 ---
 title: patchwork
 description: 2D block-structured adaptive meshes backed by mpiarray
-image: https://max-models.github.io/patchwork/figures/two_level_mesh.png
+image: /thumbnails/patchwork.png
 featured: true
 sidebar:
   order: 13
@@ -12,14 +12,14 @@ gallery:
   - page: https://max-models.github.io/patchwork/getting-started/quickstart/
     src: https://max-models.github.io/patchwork/figures/composite_poisson.png
     caption: "Composite Poisson solution on a refined patch"
-  - page: https://max-models.github.io/patchwork/tutorials/06-regridding/
-    src: https://max-models.github.io/patchwork/tutorials/06-regridding/4.gif
+  - page: https://max-models.github.io/patchwork/examples/06-regridding/
+    src: https://max-models.github.io/patchwork/examples/06-regridding/4.gif
     caption: "Patches following a moving blob as the mesh is regridded"
-  - page: https://max-models.github.io/patchwork/tutorials/06-regridding/
-    src: https://max-models.github.io/patchwork/tutorials/06-regridding/2.png
+  - page: https://max-models.github.io/patchwork/examples/06-regridding/
+    src: https://max-models.github.io/patchwork/examples/06-regridding/2.png
     caption: "Properly nested patches over a ring of tagged cells"
-  - page: https://max-models.github.io/patchwork/tutorials/04-non-rectangular-domains/
-    src: https://max-models.github.io/patchwork/tutorials/04-non-rectangular-domains/3.png
+  - page: https://max-models.github.io/patchwork/examples/04-non-rectangular-domains/
+    src: https://max-models.github.io/patchwork/examples/04-non-rectangular-domains/3.png
     caption: "Potential in a non-rectangular domain, refined at the corners"
 ---
 

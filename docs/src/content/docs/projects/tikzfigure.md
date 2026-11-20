@@ -1,7 +1,7 @@
 ---
 title: TikzFigure
 description: Python interface to generate (readable) TikZ figures
-image: https://github.com/max-models/tikzfigure/raw/devel/README_files/figure-markdown_strict/fig-tikzfigure-output-1.png
+image: /thumbnails/tikzfigure.png
 sidebar:
   order: 4
 gallery:
