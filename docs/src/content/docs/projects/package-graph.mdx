@@ -1,0 +1,16 @@
+---
+title: Package graph
+description: Which of my Python packages import which, with their languages and size.
+tableOfContents: false
+sidebar:
+  label: Package graph
+  order: 0
+---
+
+import PackageGraph from '../../../components/PackageGraph.astro';
+
+The packages build on each other: an arrow points from a package to one it imports, so the
+foundations (array backends, MPI, profiling) are at the bottom and the simulation codes at the top.
+The bar under each name shows its languages.
+
+<PackageGraph />

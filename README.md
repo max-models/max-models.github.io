@@ -52,6 +52,19 @@ sidebar:
 
 Static files (favicons, PDFs, ...) go in `public/`.
 
+### Package graph
+
+`/projects/package-graph/` shows which packages import which, with their languages and lines of
+code, from `docs/src/data/package-graph.json`. Regenerate it after the packages change, with the
+`devel` checkouts side by side in one directory (`--clone` clones the missing ones):
+
+```sh
+cd docs
+python tools/package_graph.py --repos /Users/max/git_repos/max-models
+```
+
+The list of packages and their short descriptions is `PACKAGES` in `docs/tools/package_graph.py`.
+
 ## Deployment
 
 `.github/workflows/deploy.yml` builds the site and deploys it to GitHub Pages on every push to
