@@ -1,0 +1,466 @@
+---
+// Which max-models packages import which, from src/data/package-graph.json (written by
+// tools/package_graph.py). Laid out in layers at build time: a package sits one layer above the
+// highest package it requires, so the foundations are at the bottom. Hovering a package
+// highlights what it imports and what imports it; clicking it opens its page.
+import graph from '../data/package-graph.json';
+
+type Kind = 'required' | 'optional' | 'dev';
+type Node = (typeof graph.nodes)[number];
+type Edge = { source: string; target: string; kind: Kind };
+
+const nodes: Node[] = graph.nodes;
+const edges = graph.edges as Edge[];
+const byId = new Map(nodes.map((n) => [n.id, n]));
+
+// Layer: 0 for a package that requires none of the others, else one above its highest requirement.
+const layer = new Map<string, number>();
+const visiting = new Set<string>();
+function layerOf(id: string): number {
+	if (layer.has(id)) return layer.get(id)!;
+	if (visiting.has(id)) return 0; // a cycle; does not happen with required imports
+	visiting.add(id);
+	const deps = edges.filter((e) => e.source === id && e.kind === 'required');
+	const value = deps.length ? 1 + Math.max(...deps.map((e) => layerOf(e.target))) : 0;
+	visiting.delete(id);
+	layer.set(id, value);
+	return value;
+}
+nodes.forEach((n) => layerOf(n.id));
+const top = Math.max(...layer.values());
+const rows: string[][] = Array.from({ length: top + 1 }, () => []);
+nodes.forEach((n) => rows[top - layer.get(n.id)!].push(n.id));
+
+// Order each row by the mean position of its neighbours, sweeping down and up a few times, so
+// that the edges cross less.
+const position = new Map<string, number>();
+const place = () => rows.forEach((row) => row.forEach((id, i) => position.set(id, (i + 0.5) / row.length)));
+place();
+const linked = edges.filter((e) => e.kind !== 'dev');
+const neighbours = (id: string) =>
+	linked.flatMap((e) => (e.source === id ? [e.target] : e.target === id ? [e.source] : []));
+for (let sweep = 0; sweep < 8; sweep++) {
+	const order = sweep % 2 ? [...rows.keys()].reverse() : [...rows.keys()];
+	for (const r of order) {
+		const centre = (id: string) => {
+			const ns = neighbours(id);
+			return ns.length ? ns.reduce((s, n) => s + position.get(n)!, 0) / ns.length : position.get(id)!;
+		};
+		const keys = new Map(rows[r].map((id) => [id, centre(id)]));
+		rows[r].sort((a, b) => keys.get(a)! - keys.get(b)!);
+		place();
+	}
+}
+
+const W = 168; // node width
+const H = 52; // node height
+const GAP_X = 22;
+const GAP_Y = 74;
+const PAD = 8;
+const widest = Math.max(...rows.map((r) => r.length));
+const width = widest * W + (widest - 1) * GAP_X + 2 * PAD;
+const height = rows.length * H + (rows.length - 1) * GAP_Y + 2 * PAD;
+const xy = new Map<string, { x: number; y: number }>();
+rows.forEach((row, r) => {
+	const rowWidth = row.length * W + (row.length - 1) * GAP_X;
+	row.forEach((id, i) => xy.set(id, { x: (width - rowWidth) / 2 + i * (W + GAP_X), y: PAD + r * (H + GAP_Y) }));
+});
+
+// Where the edges leave a node's bottom and enter a node's top, spread along the side in the
+// order of the nodes at the other end.
+const spread = (ids: string[], side: Map<string, number>) =>
+	ids
+		.sort((a, b) => xy.get(a)!.x - xy.get(b)!.x)
+		.forEach((id, i) => side.set(id, ((i + 1) / (ids.length + 1)) * W));
+const outX = new Map<string, Map<string, number>>();
+const inX = new Map<string, Map<string, number>>();
+for (const n of nodes) {
+	outX.set(n.id, new Map());
+	inX.set(n.id, new Map());
+	spread(edges.filter((e) => e.source === n.id).map((e) => e.target), outX.get(n.id)!);
+	spread(edges.filter((e) => e.target === n.id).map((e) => e.source), inX.get(n.id)!);
+}
+const path = (e: Edge) => {
+	const s = xy.get(e.source)!;
+	const t = xy.get(e.target)!;
+	const x1 = s.x + outX.get(e.source)!.get(e.target)!;
+	const x2 = t.x + inX.get(e.target)!.get(e.source)!;
+	if (t.y > s.y) {
+		const y1 = s.y + H;
+		const y2 = t.y;
+		const dy = Math.max(30, (y2 - y1) / 2);
+		return `M${x1},${y1} C${x1},${y1 + dy} ${x2},${y2 - dy} ${x2},${y2}`;
+	}
+	// an import upwards or within a row (optional or test imports): loop around the side
+	const y1 = s.y + H;
+	const y2 = t.y;
+	return `M${x1},${y1} C${x1},${y1 + 60} ${x2},${y2 - 60} ${x2},${y2}`;
+};
+
+const languageColours: Record<string, string> = {
+	Python: '#3572a5',
+	Jupyter: '#da5b0b',
+	CUDA: '#5f9e3a',
+	C: '#8a8a8a',
+	Fortran: '#734f96',
+	Julia: '#a270ba',
+	Metal: '#8f14e9',
+	TypeScript: '#3178c6',
+	JavaScript: '#e5c62f',
+	Astro: '#ff5a03',
+	Shell: '#89e051',
+	TeX: '#3d6117',
+};
+const languages = [...new Set(nodes.flatMap((n) => Object.keys(n.languages)))].sort(
+	(a, b) =>
+		nodes.reduce((s, n) => s + ((n.languages as Record<string, number>)[b] ?? 0), 0) -
+		nodes.reduce((s, n) => s + ((n.languages as Record<string, number>)[a] ?? 0), 0)
+);
+const bars = (n: Node) => {
+	const entries = Object.entries(n.languages as Record<string, number>);
+	let x = 0;
+	return entries.map(([language, lines]) => {
+		const w = (lines / n.lines) * W;
+		const bar = { language, x, w, lines };
+		x += w;
+		return bar;
+	});
+};
+const thousands = (lines: number) => (lines >= 1000 ? `${(lines / 1000).toFixed(1)}k` : `${lines}`);
+// the languages with at least 5% of the lines, notebooks aside, at most two
+const mainLanguages = (n: Node) =>
+	Object.entries(n.languages as Record<string, number>)
+		.filter(([l, c]) => l !== 'Jupyter' && c >= 0.05 * n.lines)
+		.slice(0, 2)
+		.map(([l]) => l)
+		.join(', ');
+const href = (n: Node) => n.page ?? n.github;
+const label = { required: 'required', optional: 'optional', dev: 'tests and docs' };
+
+const imports = (id: string, kinds: Kind[]) =>
+	edges.filter((e) => e.source === id && kinds.includes(e.kind)).map((e) => byId.get(e.target)!);
+const importedBy = (id: string) => edges.filter((e) => e.target === id && e.kind !== 'dev').map((e) => byId.get(e.source)!);
+const tableOrder = [...nodes].sort((a, b) => layer.get(a.id)! - layer.get(b.id)! || a.id.localeCompare(b.id));
+---
+
+<div class="package-graph not-content">
+	<div class="controls">
+		<span class="legend">
+			<svg width="34" height="10" aria-hidden="true"><line x1="0" y1="5" x2="34" y2="5" class="edge required" /></svg>
+			required
+		</span>
+		<span class="legend">
+			<svg width="34" height="10" aria-hidden="true"><line x1="0" y1="5" x2="34" y2="5" class="edge optional" /></svg>
+			optional (an extra)
+		</span>
+		<label class="legend">
+			<input type="checkbox" data-toggle-dev />
+			<svg width="34" height="10" aria-hidden="true"><line x1="0" y1="5" x2="34" y2="5" class="edge dev" /></svg>
+			only in tests, examples and docs
+		</label>
+	</div>
+
+	<div class="details" aria-live="polite">
+		<p class="hint">Hover over a package to see what it imports and what imports it; click it to open its page.</p>
+		{
+			nodes.map((n) => (
+				<div class="detail" data-detail={n.id} hidden>
+					<p>
+						<strong>{n.id}</strong>: {n.description}.{' '}
+						<span class="muted">
+							{thousands(n.libraryLines)} lines in the library, {thousands(n.lines)} with the tests, examples and notebooks;
+							{' '}{Object.entries(n.languages).map(([l, c]) => `${l} ${thousands(c)}`).join(', ')}.
+						</span>
+					</p>
+					<p>
+						<span class="out">Imports</span>{' '}
+						{imports(n.id, ['required', 'optional']).map((m) => m.id).join(', ') || 'none of the others'}
+						{' · '}
+						<span class="in">Imported by</span> {importedBy(n.id).map((m) => m.id).join(', ') || 'none of the others'}
+					</p>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="scroll">
+		<svg class="graph" viewBox={`0 0 ${width} ${height}`} width={width} role="img" aria-labelledby="package-graph-title">
+			<title id="package-graph-title">Which packages import which: an arrow points from a package to one it imports</title>
+			<defs>
+				<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+					<path d="M0,1 L9,5 L0,9 z" class="arrowhead" />
+				</marker>
+			</defs>
+			<g class="edges">
+				{
+					edges.map((e) => (
+						<path d={path(e)} class:list={['edge', e.kind]} data-source={e.source} data-target={e.target} marker-end="url(#arrow)" />
+					))
+				}
+			</g>
+			<g class="nodes">
+				{
+					nodes.map((n) => {
+						const { x, y } = xy.get(n.id)!;
+						return (
+							<a href={href(n)} class="node" data-id={n.id} transform={`translate(${x},${y})`} aria-label={`${n.id}: ${n.description}`}>
+								<clipPath id={`clip-${n.id}`}>
+									<rect width={W} height={H} rx="6" />
+								</clipPath>
+								<rect class="box" width={W} height={H} rx="6" />
+								<text class="name" x={W / 2} y="21">
+									{n.id}
+								</text>
+								<text class="meta" x={W / 2} y="38">
+									{thousands(n.libraryLines)} lines · {mainLanguages(n)}
+								</text>
+								<g clip-path={`url(#clip-${n.id})`}>
+									{bars(n).map((b) => (
+										<rect x={b.x} y={H - 5} width={b.w} height="5" fill={languageColours[b.language] ?? '#999'} />
+									))}
+								</g>
+							</a>
+						);
+					})
+				}
+			</g>
+		</svg>
+	</div>
+
+	<p class="languages">
+		{
+			languages.map((l) => (
+				<span class="legend">
+					<span class="swatch" style={`background:${languageColours[l] ?? '#999'}`} />
+					{l}
+				</span>
+			))
+		}
+	</p>
+</div>
+
+<h2 id="all-packages">All packages</h2>
+
+<p>
+	From the bottom of the graph up. Lines are non-blank lines of code: in the library (<code>src/</code>), and in
+	all of the repository with its tests, examples and notebooks.
+</p>
+
+<div class="table-scroll">
+	<table class="package-table">
+		<thead>
+			<tr>
+				<th>Package</th>
+				<th>What it does</th>
+				<th>Languages</th>
+				<th class="number">Library</th>
+				<th class="number">All</th>
+				<th>Imports</th>
+			</tr>
+		</thead>
+		<tbody>
+			{
+				tableOrder.map((n) => (
+					<tr>
+						<td>
+							<a href={href(n)}>{n.id}</a>
+						</td>
+						<td>{n.description}</td>
+						<td>{Object.keys(n.languages).join(', ')}</td>
+						<td class="number">{thousands(n.libraryLines)}</td>
+						<td class="number">{thousands(n.lines)}</td>
+						<td>
+							{imports(n.id, ['required', 'optional', 'dev']).length === 0
+								? '–'
+								: (['required', 'optional', 'dev'] as Kind[])
+										.map((k) => [k, imports(n.id, [k])] as const)
+										.filter(([, ms]) => ms.length)
+										.map(([k, ms]) => `${ms.map((m) => m.id).join(', ')} (${label[k]})`)
+										.join('; ')}
+						</td>
+					</tr>
+				))
+			}
+		</tbody>
+	</table>
+</div>
+
+<script>
+	for (const root of document.querySelectorAll<HTMLElement>('.package-graph')) {
+		const edges = [...root.querySelectorAll<SVGPathElement>('.edge[data-source]')];
+		const nodes = [...root.querySelectorAll<SVGAElement>('.node')];
+		const hint = root.querySelector<HTMLElement>('.hint')!;
+		const details = [...root.querySelectorAll<HTMLElement>('[data-detail]')];
+		const toggle = root.querySelector<HTMLInputElement>('[data-toggle-dev]')!;
+
+		const showDev = () => root.classList.toggle('show-dev', toggle.checked);
+		toggle.addEventListener('change', showDev);
+		showDev();
+
+		const highlight = (id: string | null) => {
+			root.classList.toggle('focused', id !== null);
+			const related = new Set(id ? [id] : []);
+			for (const e of edges) {
+				const visible = root.classList.contains('show-dev') || !e.classList.contains('dev');
+				const out = visible && e.dataset.source === id;
+				const into = visible && e.dataset.target === id;
+				e.classList.toggle('out', out);
+				e.classList.toggle('in', into);
+				if (out) related.add(e.dataset.target!);
+				if (into) related.add(e.dataset.source!);
+			}
+			for (const n of nodes) {
+				n.classList.toggle('related', related.has(n.dataset.id!));
+				n.classList.toggle('current', n.dataset.id === id);
+			}
+			hint.hidden = id !== null;
+			for (const d of details) d.hidden = d.dataset.detail !== id;
+		};
+		for (const n of nodes) {
+			n.addEventListener('mouseenter', () => highlight(n.dataset.id!));
+			n.addEventListener('focus', () => highlight(n.dataset.id!));
+			n.addEventListener('mouseleave', () => highlight(null));
+			n.addEventListener('blur', () => highlight(null));
+		}
+	}
+</script>
+
+<style>
+	.package-graph {
+		--out: var(--sl-color-accent);
+		--in: #d97706;
+		margin-top: 1rem;
+	}
+	.controls,
+	.languages {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 1.25rem;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-2);
+	}
+	.legend {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+	label.legend {
+		cursor: pointer;
+	}
+	.swatch {
+		display: inline-block;
+		width: 0.8rem;
+		height: 0.8rem;
+		border-radius: 2px;
+	}
+	.scroll {
+		overflow-x: auto;
+		margin: 0.75rem 0;
+	}
+	.graph {
+		display: block;
+		max-width: 100%;
+		min-width: 720px;
+		height: auto;
+		margin: 0 auto;
+		font-family: var(--sl-font);
+	}
+	.edge {
+		fill: none;
+		stroke: var(--sl-color-gray-4);
+		stroke-width: 1.2;
+		opacity: 0.7;
+	}
+	.edge.optional {
+		stroke-dasharray: 6 4;
+	}
+	.edge.dev {
+		stroke-dasharray: 1.5 3.5;
+		display: none;
+	}
+	.controls .edge.dev,
+	.show-dev .edge.dev {
+		display: inline;
+	}
+	.arrowhead {
+		fill: var(--sl-color-gray-4);
+	}
+	.box {
+		fill: var(--sl-color-bg);
+		stroke: var(--sl-color-gray-4);
+		stroke-width: 1;
+	}
+	.name {
+		fill: var(--sl-color-white);
+		font-size: 14px;
+		font-weight: 600;
+		text-anchor: middle;
+	}
+	.meta {
+		fill: var(--sl-color-gray-3);
+		font-size: 10.5px;
+		text-anchor: middle;
+	}
+	.node {
+		cursor: pointer;
+		outline: none;
+	}
+	.node,
+	.edge {
+		transition: opacity 0.15s;
+	}
+	.node:hover .box,
+	.node:focus-visible .box,
+	.node.current .box {
+		stroke: var(--sl-color-accent);
+		stroke-width: 2;
+	}
+	.focused .node:not(.related),
+	.focused .edge:not(.out):not(.in) {
+		opacity: 0.15;
+	}
+	.edge.out,
+	.edge.in {
+		opacity: 1;
+	}
+	.edge.out {
+		stroke: var(--out);
+		stroke-width: 2;
+	}
+	.edge.in {
+		stroke: var(--in);
+		stroke-width: 2;
+	}
+	.details {
+		min-height: 4.5rem;
+		margin-top: 0.75rem;
+		font-size: var(--sl-text-sm);
+	}
+	.details p {
+		margin: 0 0 0.35rem;
+	}
+	.muted,
+	.hint {
+		color: var(--sl-color-gray-3);
+	}
+	.out,
+	.in {
+		font-weight: 600;
+	}
+	.out {
+		color: var(--out);
+	}
+	.in {
+		color: var(--in);
+	}
+	.table-scroll {
+		overflow-x: auto;
+	}
+	.package-table {
+		font-size: var(--sl-text-sm);
+	}
+	.number {
+		text-align: right;
+		white-space: nowrap;
+	}
+</style>

@@ -1,0 +1,757 @@
+{
+ "nodes": [
+  {
+   "id": "cunumpy",
+   "module": "cunumpy",
+   "pypi": "cunumpy",
+   "description": "NumPy on the CPU, CuPy on the GPU",
+   "page": "/projects/cunumpy/",
+   "github": "https://github.com/max-models/cunumpy",
+   "languages": {
+    "Python": 29779,
+    "CUDA": 978,
+    "JavaScript": 67,
+    "Shell": 7
+   },
+   "lines": 30831,
+   "libraryLines": 17771
+  },
+  {
+   "id": "maybempi",
+   "module": "maybempi",
+   "pypi": "maybempi",
+   "description": "MPI only when launched under MPI",
+   "page": "/projects/maybempi/",
+   "github": "https://github.com/max-models/maybempi",
+   "languages": {
+    "Python": 3625,
+    "Jupyter": 28
+   },
+   "lines": 3653,
+   "libraryLines": 3625
+  },
+  {
+   "id": "scope-profiler",
+   "module": "scope_profiler",
+   "pypi": "scope-profiler",
+   "description": "Profiling of code regions",
+   "page": "/projects/scope-profiler/",
+   "github": "https://github.com/max-models/scope-profiler",
+   "languages": {
+    "Python": 66222,
+    "JavaScript": 7683,
+    "Jupyter": 2532,
+    "C": 2240,
+    "Fortran": 783,
+    "Astro": 638,
+    "TypeScript": 500
+   },
+   "lines": 80598,
+   "libraryLines": 69526
+  },
+  {
+   "id": "methodcard",
+   "module": "methodcard",
+   "pypi": "methodcard",
+   "description": "The math of each numerical method",
+   "page": null,
+   "github": "https://github.com/max-models/methodcard",
+   "languages": {
+    "Python": 1601,
+    "Shell": 66,
+    "Jupyter": 48
+   },
+   "lines": 1715,
+   "libraryLines": 1454
+  },
+  {
+   "id": "mpiarray",
+   "module": "mpiarray",
+   "pypi": "mpiarray",
+   "description": "Distributed arrays with halo exchange",
+   "page": "/projects/mpiarray/",
+   "github": "https://github.com/max-models/mpiarray",
+   "languages": {
+    "Python": 9943,
+    "Jupyter": 1682
+   },
+   "lines": 11625,
+   "libraryLines": 9943
+  },
+  {
+   "id": "mpiparticles",
+   "module": "mpiparticles",
+   "pypi": "mpiparticles",
+   "description": "Distributed particles and migration",
+   "page": "/projects/mpiparticles/",
+   "github": "https://github.com/max-models/mpiparticles",
+   "languages": {
+    "Python": 4018,
+    "Jupyter": 227,
+    "CUDA": 207
+   },
+   "lines": 4452,
+   "libraryLines": 4196
+  },
+  {
+   "id": "mpifield",
+   "module": "mpifield",
+   "pypi": "mpifield",
+   "description": "Distributed fields and particle gather/scatter",
+   "page": null,
+   "github": "https://github.com/max-models/mpifield",
+   "languages": {
+    "Python": 10924,
+    "CUDA": 954,
+    "Jupyter": 200
+   },
+   "lines": 12078,
+   "libraryLines": 11060
+  },
+  {
+   "id": "simgeometry",
+   "module": "simgeometry",
+   "pypi": "simgeometry",
+   "description": "Shapes, grids and domains",
+   "page": "/projects/simgeometry/",
+   "github": "https://github.com/max-models/simgeometry",
+   "languages": {
+    "Python": 19046,
+    "Jupyter": 1421,
+    "CUDA": 199,
+    "Shell": 64
+   },
+   "lines": 20730,
+   "libraryLines": 19152
+  },
+  {
+   "id": "patchwork",
+   "module": "patchwork",
+   "pypi": "patchwork-amr",
+   "description": "Block-structured adaptive meshes",
+   "page": "/projects/patchwork/",
+   "github": "https://github.com/max-models/patchwork",
+   "languages": {
+    "Python": 18738,
+    "Jupyter": 728,
+    "Shell": 64
+   },
+   "lines": 19530,
+   "libraryLines": 18254
+  },
+  {
+   "id": "tree-d-3d",
+   "module": "tree_d_3d",
+   "pypi": "tree-d-3d",
+   "description": "Barnes-Hut trees and fast multipoles",
+   "page": "/projects/tree-d-3d/",
+   "github": "https://github.com/max-models/tree-d-3d",
+   "languages": {
+    "Python": 27181,
+    "CUDA": 831,
+    "Jupyter": 409,
+    "Shell": 21
+   },
+   "lines": 28442,
+   "libraryLines": 16372
+  },
+  {
+   "id": "plasmacoll",
+   "module": "plasmacoll",
+   "pypi": "plasmacoll",
+   "description": "Monte Carlo collisions with neutrals",
+   "page": "/projects/plasmacoll/",
+   "github": "https://github.com/max-models/plasmacoll",
+   "languages": {
+    "Python": 15407,
+    "Jupyter": 927
+   },
+   "lines": 16334,
+   "libraryLines": 15407
+  },
+  {
+   "id": "opencr",
+   "module": "opencr",
+   "pypi": "opencr",
+   "description": "Collisional-radiative models",
+   "page": null,
+   "github": "https://github.com/max-models/opencr",
+   "languages": {
+    "Python": 11801,
+    "Jupyter": 552
+   },
+   "lines": 12353,
+   "libraryLines": 11433
+  },
+  {
+   "id": "wellbalanced",
+   "module": "wellbalanced",
+   "pypi": "wellbalanced",
+   "description": "Global and fluid plasma models",
+   "page": "/projects/wellbalanced/",
+   "github": "https://github.com/max-models/wellbalanced",
+   "languages": {
+    "Python": 29969,
+    "Jupyter": 565
+   },
+   "lines": 30534,
+   "libraryLines": 26445
+  },
+  {
+   "id": "beamtracer",
+   "module": "beamtracer",
+   "pypi": "beamtracer",
+   "description": "Self-consistent ion beam extraction",
+   "page": "/projects/beamtracer/",
+   "github": "https://github.com/max-models/beamtracer",
+   "languages": {
+    "Python": 20978,
+    "Jupyter": 1296,
+    "CUDA": 733
+   },
+   "lines": 23007,
+   "libraryLines": 19355
+  },
+  {
+   "id": "freeofcharge",
+   "module": "freeofcharge",
+   "pypi": "freeofcharge",
+   "description": "Neutral beams in tokamaks",
+   "page": null,
+   "github": "https://github.com/max-models/freeofcharge",
+   "languages": {
+    "Python": 23337,
+    "Jupyter": 3503,
+    "CUDA": 82,
+    "Shell": 64
+   },
+   "lines": 26986,
+   "libraryLines": 22745
+  },
+  {
+   "id": "mhd-sandbox",
+   "module": "mhd_sandbox",
+   "pypi": "mhd-sandbox",
+   "description": "2D ideal MHD on a periodic grid",
+   "page": "/projects/mhd-sandbox/",
+   "github": "https://github.com/max-models/mhd-sandbox",
+   "languages": {
+    "Python": 897,
+    "Jupyter": 661,
+    "Shell": 64
+   },
+   "lines": 1622,
+   "libraryLines": 861
+  },
+  {
+   "id": "plasma-plots",
+   "module": "plasma_plots",
+   "pypi": "plasma-plots",
+   "description": "Plots of labeled xarray output",
+   "page": "/projects/plasma-plots/",
+   "github": "https://github.com/max-models/plasma-plots",
+   "languages": {
+    "Python": 64259
+   },
+   "lines": 64259,
+   "libraryLines": 43649
+  },
+  {
+   "id": "plasma-posters",
+   "module": "plasma_posters",
+   "pypi": "plasma-posters",
+   "description": "Scientific posters from Python",
+   "page": "/projects/plasma-posters/",
+   "github": "https://github.com/max-models/plasma-posters",
+   "languages": {
+    "Python": 1526,
+    "Jupyter": 12
+   },
+   "lines": 1538,
+   "libraryLines": 654
+  },
+  {
+   "id": "maxplotlib",
+   "module": "maxplotlib",
+   "pypi": "maxplotlibx",
+   "description": "Plots with several backends",
+   "page": "/projects/maxplotlib/",
+   "github": "https://github.com/max-models/maxplotlib",
+   "languages": {
+    "Python": 16324,
+    "Jupyter": 2082
+   },
+   "lines": 18406,
+   "libraryLines": 15650
+  },
+  {
+   "id": "tikzfigure",
+   "module": "tikzfigure",
+   "pypi": "tikzfigure",
+   "description": "Readable TikZ figures from Python",
+   "page": "/projects/tikzfigure/",
+   "github": "https://github.com/max-models/tikzfigure",
+   "languages": {
+    "Python": 24219,
+    "Jupyter": 5945,
+    "TeX": 741
+   },
+   "lines": 30905,
+   "libraryLines": 23674
+  },
+  {
+   "id": "slurm-script-generator",
+   "module": "slurm_script_generator",
+   "pypi": "slurm-script-generator",
+   "description": "Slurm job scripts",
+   "page": "/projects/slurm-script-generator/",
+   "github": "https://github.com/max-models/slurm-script-generator",
+   "languages": {
+    "Python": 7862,
+    "Jupyter": 954,
+    "Shell": 7
+   },
+   "lines": 8823,
+   "libraryLines": 5684
+  },
+  {
+   "id": "strava-collections",
+   "module": "strava_collections",
+   "pypi": "strava-collections",
+   "description": "Collections of Strava activities",
+   "page": "/projects/strava-collections/",
+   "github": "https://github.com/max-models/strava-collections",
+   "languages": {
+    "Python": 3879,
+    "Astro": 2512,
+    "TypeScript": 2149,
+    "Jupyter": 49,
+    "JavaScript": 38
+   },
+   "lines": 8627,
+   "libraryLines": 7749
+  }
+ ],
+ "edges": [
+  {
+   "source": "cunumpy",
+   "target": "maybempi",
+   "kind": "required"
+  },
+  {
+   "source": "cunumpy",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "scope-profiler",
+   "target": "maxplotlib",
+   "kind": "optional"
+  },
+  {
+   "source": "methodcard",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "mpiarray",
+   "target": "cunumpy",
+   "kind": "required"
+  },
+  {
+   "source": "mpiarray",
+   "target": "maybempi",
+   "kind": "required"
+  },
+  {
+   "source": "mpiarray",
+   "target": "plasma-plots",
+   "kind": "dev"
+  },
+  {
+   "source": "mpiarray",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "mpiparticles",
+   "target": "cunumpy",
+   "kind": "required"
+  },
+  {
+   "source": "mpiparticles",
+   "target": "maybempi",
+   "kind": "required"
+  },
+  {
+   "source": "mpiparticles",
+   "target": "mpiarray",
+   "kind": "required"
+  },
+  {
+   "source": "mpiparticles",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "mpifield",
+   "target": "cunumpy",
+   "kind": "required"
+  },
+  {
+   "source": "mpifield",
+   "target": "maybempi",
+   "kind": "required"
+  },
+  {
+   "source": "mpifield",
+   "target": "methodcard",
+   "kind": "required"
+  },
+  {
+   "source": "mpifield",
+   "target": "mpiarray",
+   "kind": "required"
+  },
+  {
+   "source": "mpifield",
+   "target": "plasma-plots",
+   "kind": "optional"
+  },
+  {
+   "source": "mpifield",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "mpifield",
+   "target": "simgeometry",
+   "kind": "required"
+  },
+  {
+   "source": "simgeometry",
+   "target": "cunumpy",
+   "kind": "required"
+  },
+  {
+   "source": "simgeometry",
+   "target": "maybempi",
+   "kind": "required"
+  },
+  {
+   "source": "simgeometry",
+   "target": "methodcard",
+   "kind": "required"
+  },
+  {
+   "source": "simgeometry",
+   "target": "mpiarray",
+   "kind": "required"
+  },
+  {
+   "source": "simgeometry",
+   "target": "plasma-plots",
+   "kind": "optional"
+  },
+  {
+   "source": "simgeometry",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "patchwork",
+   "target": "cunumpy",
+   "kind": "required"
+  },
+  {
+   "source": "patchwork",
+   "target": "maybempi",
+   "kind": "required"
+  },
+  {
+   "source": "patchwork",
+   "target": "methodcard",
+   "kind": "required"
+  },
+  {
+   "source": "patchwork",
+   "target": "mpiarray",
+   "kind": "required"
+  },
+  {
+   "source": "patchwork",
+   "target": "mpifield",
+   "kind": "required"
+  },
+  {
+   "source": "patchwork",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "tree-d-3d",
+   "target": "cunumpy",
+   "kind": "required"
+  },
+  {
+   "source": "tree-d-3d",
+   "target": "maybempi",
+   "kind": "required"
+  },
+  {
+   "source": "tree-d-3d",
+   "target": "methodcard",
+   "kind": "required"
+  },
+  {
+   "source": "tree-d-3d",
+   "target": "plasma-plots",
+   "kind": "dev"
+  },
+  {
+   "source": "tree-d-3d",
+   "target": "plasmacoll",
+   "kind": "dev"
+  },
+  {
+   "source": "tree-d-3d",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "tree-d-3d",
+   "target": "simgeometry",
+   "kind": "required"
+  },
+  {
+   "source": "plasmacoll",
+   "target": "cunumpy",
+   "kind": "required"
+  },
+  {
+   "source": "plasmacoll",
+   "target": "methodcard",
+   "kind": "required"
+  },
+  {
+   "source": "plasmacoll",
+   "target": "plasma-plots",
+   "kind": "dev"
+  },
+  {
+   "source": "plasmacoll",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "opencr",
+   "target": "cunumpy",
+   "kind": "optional"
+  },
+  {
+   "source": "opencr",
+   "target": "methodcard",
+   "kind": "required"
+  },
+  {
+   "source": "opencr",
+   "target": "plasma-plots",
+   "kind": "dev"
+  },
+  {
+   "source": "opencr",
+   "target": "plasmacoll",
+   "kind": "required"
+  },
+  {
+   "source": "opencr",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "wellbalanced",
+   "target": "methodcard",
+   "kind": "required"
+  },
+  {
+   "source": "wellbalanced",
+   "target": "opencr",
+   "kind": "optional"
+  },
+  {
+   "source": "wellbalanced",
+   "target": "patchwork",
+   "kind": "optional"
+  },
+  {
+   "source": "wellbalanced",
+   "target": "plasma-plots",
+   "kind": "dev"
+  },
+  {
+   "source": "wellbalanced",
+   "target": "plasmacoll",
+   "kind": "required"
+  },
+  {
+   "source": "wellbalanced",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "wellbalanced",
+   "target": "simgeometry",
+   "kind": "optional"
+  },
+  {
+   "source": "beamtracer",
+   "target": "cunumpy",
+   "kind": "required"
+  },
+  {
+   "source": "beamtracer",
+   "target": "maybempi",
+   "kind": "required"
+  },
+  {
+   "source": "beamtracer",
+   "target": "methodcard",
+   "kind": "required"
+  },
+  {
+   "source": "beamtracer",
+   "target": "mpifield",
+   "kind": "required"
+  },
+  {
+   "source": "beamtracer",
+   "target": "mpiparticles",
+   "kind": "required"
+  },
+  {
+   "source": "beamtracer",
+   "target": "patchwork",
+   "kind": "required"
+  },
+  {
+   "source": "beamtracer",
+   "target": "plasma-plots",
+   "kind": "optional"
+  },
+  {
+   "source": "beamtracer",
+   "target": "plasmacoll",
+   "kind": "required"
+  },
+  {
+   "source": "beamtracer",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "beamtracer",
+   "target": "simgeometry",
+   "kind": "required"
+  },
+  {
+   "source": "beamtracer",
+   "target": "wellbalanced",
+   "kind": "optional"
+  },
+  {
+   "source": "freeofcharge",
+   "target": "cunumpy",
+   "kind": "required"
+  },
+  {
+   "source": "freeofcharge",
+   "target": "maybempi",
+   "kind": "required"
+  },
+  {
+   "source": "freeofcharge",
+   "target": "methodcard",
+   "kind": "required"
+  },
+  {
+   "source": "freeofcharge",
+   "target": "opencr",
+   "kind": "optional"
+  },
+  {
+   "source": "freeofcharge",
+   "target": "plasma-plots",
+   "kind": "optional"
+  },
+  {
+   "source": "freeofcharge",
+   "target": "plasmacoll",
+   "kind": "required"
+  },
+  {
+   "source": "freeofcharge",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "freeofcharge",
+   "target": "simgeometry",
+   "kind": "required"
+  },
+  {
+   "source": "freeofcharge",
+   "target": "tree-d-3d",
+   "kind": "optional"
+  },
+  {
+   "source": "freeofcharge",
+   "target": "wellbalanced",
+   "kind": "optional"
+  },
+  {
+   "source": "plasma-plots",
+   "target": "maxplotlib",
+   "kind": "optional"
+  },
+  {
+   "source": "plasma-plots",
+   "target": "scope-profiler",
+   "kind": "optional"
+  },
+  {
+   "source": "plasma-plots",
+   "target": "simgeometry",
+   "kind": "dev"
+  },
+  {
+   "source": "plasma-plots",
+   "target": "tikzfigure",
+   "kind": "dev"
+  },
+  {
+   "source": "plasma-posters",
+   "target": "freeofcharge",
+   "kind": "dev"
+  },
+  {
+   "source": "plasma-posters",
+   "target": "plasma-plots",
+   "kind": "dev"
+  },
+  {
+   "source": "plasma-posters",
+   "target": "scope-profiler",
+   "kind": "required"
+  },
+  {
+   "source": "maxplotlib",
+   "target": "tikzfigure",
+   "kind": "required"
+  },
+  {
+   "source": "strava-collections",
+   "target": "maxplotlib",
+   "kind": "required"
+  }
+ ]
+}

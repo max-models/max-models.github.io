@@ -2,7 +2,8 @@
 // A card for each project, in sidebar order: the featured projects first, on larger cards.
 import { getSection, href } from '../lib/entries';
 
-const projects = (await getSection('projects')).sort(
+// the package graph is a page about the projects, not a project
+const projects = (await getSection('projects')).filter((p) => p.id !== 'projects/package-graph').sort(
 	(a, b) => (a.data.sidebar.order ?? Infinity) - (b.data.sidebar.order ?? Infinity)
 );
 const groups = [
