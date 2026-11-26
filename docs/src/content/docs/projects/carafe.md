@@ -28,4 +28,4 @@ It is used alongside [beamtracer](/projects/beamtracer/) to model plasma neutral
 
 Documentation: [max-models.github.io/carafe](https://max-models.github.io/carafe/)
 
-[View the code on GitHub](https://github.com/max-models/carafe) · [PyPI](https://pypi.org/project/carafe-plasma/)
+[View the code on GitHub](https://github.com/max-models/carafe) · [PyPI](https://pypi.org/project/plasma-carafe/)

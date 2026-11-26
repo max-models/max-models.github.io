@@ -186,7 +186,7 @@
   {
    "id": "carafe",
    "module": "carafe",
-   "pypi": "carafe-plasma",
+   "pypi": "plasma-carafe",
    "description": "Global and fluid plasma models",
    "page": "/projects/carafe/",
    "github": "https://github.com/max-models/carafe",
