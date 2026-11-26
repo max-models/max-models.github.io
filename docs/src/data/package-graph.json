@@ -184,12 +184,12 @@
    "libraryLines": 11433
   },
   {
-   "id": "wellbalanced",
-   "module": "wellbalanced",
-   "pypi": "wellbalanced",
+   "id": "carafe",
+   "module": "carafe",
+   "pypi": "carafe-plasma",
    "description": "Global and fluid plasma models",
-   "page": "/projects/wellbalanced/",
-   "github": "https://github.com/max-models/wellbalanced",
+   "page": "/projects/carafe/",
+   "github": "https://github.com/max-models/carafe",
    "languages": {
     "Python": 29969,
     "Jupyter": 565
@@ -569,37 +569,37 @@
    "kind": "required"
   },
   {
-   "source": "wellbalanced",
+   "source": "carafe",
    "target": "methodcard",
    "kind": "required"
   },
   {
-   "source": "wellbalanced",
+   "source": "carafe",
    "target": "opencr",
    "kind": "optional"
   },
   {
-   "source": "wellbalanced",
+   "source": "carafe",
    "target": "patchwork",
    "kind": "optional"
   },
   {
-   "source": "wellbalanced",
+   "source": "carafe",
    "target": "plasma-plots",
    "kind": "dev"
   },
   {
-   "source": "wellbalanced",
+   "source": "carafe",
    "target": "plasmacoll",
    "kind": "required"
   },
   {
-   "source": "wellbalanced",
+   "source": "carafe",
    "target": "scope-profiler",
    "kind": "required"
   },
   {
-   "source": "wellbalanced",
+   "source": "carafe",
    "target": "simgeometry",
    "kind": "optional"
   },
@@ -655,7 +655,7 @@
   },
   {
    "source": "beamtracer",
-   "target": "wellbalanced",
+   "target": "carafe",
    "kind": "optional"
   },
   {
@@ -705,7 +705,7 @@
   },
   {
    "source": "freeofcharge",
-   "target": "wellbalanced",
+   "target": "carafe",
    "kind": "optional"
   },
   {

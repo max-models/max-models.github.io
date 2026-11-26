@@ -41,7 +41,7 @@ PACKAGES = [
     ("tree-d-3d", "Barnes-Hut trees and fast multipoles", "/projects/tree-d-3d/"),
     ("plasmacoll", "Monte Carlo collisions with neutrals", "/projects/plasmacoll/"),
     ("opencr", "Collisional-radiative models", None),
-    ("wellbalanced", "Global and fluid plasma models", "/projects/wellbalanced/"),
+    ("carafe", "Global and fluid plasma models", "/projects/carafe/"),
     ("beamtracer", "Self-consistent ion beam extraction", "/projects/beamtracer/"),
     ("freeofcharge", "Neutral beams in tokamaks", None),
     ("mhd-sandbox", "2D ideal MHD on a periodic grid", "/projects/mhd-sandbox/"),
